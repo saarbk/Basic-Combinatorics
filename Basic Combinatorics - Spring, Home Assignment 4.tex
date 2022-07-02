@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\newtheorem*{claim*}{claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{claim}
+\newtheorem*{theorem*}{Theorem}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+\usepackage{amssymb}
+\newtheorem{prop}{Proposition}
+\usepackage{mathrsfs} 
+\newtheorem{Theorem}{Theorem}
+\usepackage{babel}
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\begin{document}
+\begin{center}
+\section*{Basic Combinatorics - Spring, Home Assignment 4}
+\subsubsection*{Saar Barak}
+\end{center}
+\subsection*{Problem 1.}
+\begin{prop}if $T(n) = T(n/3) + T(2n/3) + n$ then $T(n) = O(n \log n)$  \end{prop}
+\begin{proof}
+using induction, my induction hypothesis will  be
+$$T(n) \leq C n \log n, \qquad \forall n < N,0<C  $$
+Now we get that 
+\begin{align}
+T(n) &= T\left(\frac{n}{3}\right)+T\left(\frac{2n}{3}\right)+n \\
+&\leq  C \frac{n}{3}\log \frac{n}{3} + C\frac{2n}{3}\log \frac{2n}{3} + n\\
+&\leq C\frac{n}{3} \log n- C\frac{n}{3}\log 3 +C\frac{n}{3} \log n-  C\frac{2n}{3}\log \frac{3}{2} + n \\
+&\leq Cn \log n- C\frac{n}{3}\log 3-  C\frac{2n}{3}\log \frac{3}{2} + n\\
+&\leq^{(*)} Cn\log n
+\end{align}
+(2) imply the induction hypothesis, and (5) will hold by choosing $C$ s.t
+\[ n \leq C\frac{n}{3}\log 3 +  C\frac{2n}{3}\log \frac{3}{2} 
+\]
+Hence for any  $n\geq 1$ we can choose $C$ such that
+\[C \geq \frac{1}{\frac{1}{3}\log 3+\frac{2}{3}\log \frac{3}{2}} \thickapprox 1.578
+\] We get that \[T(n) = O(n \log n)\]
+\end{proof}
+\pagebreak
+\begin{prop}if $T(n) = 2T(n/2) + n \log n $ then $T(n) = O(n \log^2 n)$.\end{prop}
+\begin{proof}
+using induction, my induction hypothesis will  be
+$$T(n) \le C n \log^2 n, \qquad \forall n < N,0<C$$
+for $n=2$
+\begin{align}
+T(2) &= 2T\left(\frac{2}{2}\right)+2\log 2\\
+&\le 2C+n\log n\\
+&= O( n \log^2 n)
+\end{align}
+Hence for any  $n\geq 2$
+\begin{align}
+T(n) &= 2T(n)+n \log n\\
+ &\le 2\log^2(\frac{n}{2})\frac{n}{2}+n \log n\\
+ &= O(n \log^2 n)
+\end{align}
+(10) holds since $n>\frac{n+1}{2}$
+\end{proof}
+
+\begin{prop}Let $c_1, \dots , c_k$ be k positive reals satisfying $\sum^k_{i=1} c_i < 1$. if $T(n) =\sum^k_{i=1} T(c_in) +n
+$ then $T(n) = O(n)$ .\end{prop}
+\begin{proof}by induction, my induction hypothesis will  be
+$$T(n)\le Cn, \qquad \forall n < N,0<C$$
+Its immediate that $T(0)\le 0$ now lets
+\begin{align}
+T(n) &= \sum^k_{i=1} T(c_in) +n\\
+ &\le\sum^k_{i=1} C(c_in) +n\\
+ &\le Cn\left(\sum^k_{i=1}c_i +\frac{1}{C}\right)\\
+ &\le^{(*)} Cn
+\end{align}
+(13) imply the induction hypothesis, and (15) will hold by choosing $C$ s.t
+\[C \ge \frac{1}{1-\sum^k_{i=1}c_i}
+\]
+Hence for any $n\ge 1$ (15) holds and we get that \[T(n)=O(n)
+\]
+\end{proof}
+\subsection*{Problem 2.}
+\begin{theorem*}
+ Every tournament has a Hamilton path
+\end{theorem*}
+ \begin{proof}[\proofname\ 1]Let $T=(V,E)$ be tournament graph where $|V|=n$ . using strong induction for $n\leq 2$ its immediate that  hamiltonian path exists. now lets assume its hold for any $k<n$. lets choose some  $v\in V$ and define 2 sets such that
+\[V_{in}=\{u: \overrightarrow{(u,v)}\in E\},V_{out}=\{u: \overrightarrow{(v,u)}\in E\}
+\]
+Since $|V_{in}|<n,|V_{out}|<n$ by the induction hypothesis exists paths \\$P_{in}\in V_{in},P_{out}\in V_{in}$ such that $P_{in}$ and $P_{out}$ are hamiltonian paths. now the path $P_{in}\rightarrow v \rightarrow P_{out}$ is hamiltonian path for all vertices \\$|V_{in}|\cup |v| \cup|V_{out}|=n$
+\end{proof}
+
+ \begin{proof}[\proofname\ 2] First we can notice that $\chi(T)=$\footnote{T is graph on n vertex hence its can be colored by   at most $n$ different colours}$n$ since any 2 vertex connected with an edge . Since $\chi(T)\leq |P|$ where $P$ is the longest simple path in $T$. on the other hand its can be at most $n$ since $T$  have $n$ vertex .  we get that $|P|=n$.\\\\ Hence since $P$ is simple path i.e its visit any vertex of the $T$ exactly once, and $P$ visit all the vertex or in other worlds $P$ is Hamilton path in $T$
+\end{proof}
+\pagebreak
+\subsection*{Problem 3.}
+\begin{claim*}
+ Any set X of $st + 1$ integers contains one of the following:
+ \begin{list}{•}{}
+ \item  A subset $T = \{ x_1,\dots , x_{t+1}\} \subseteq X$ of size $t + 1$ such that $x_k$ divides $x_{k+1}$ for every $1 \le k \le t$.
+ \item A subset $S = \{ x_1,\dots , x_{s+1}\} \subseteq X$ of  $s + 1$ integers such that $x_i$ does not divides $x_j$ for every $x_i,x_j\in S$.
+ \end{list}
+\end{claim*}
+ \begin{proof}
+ Consider the following Poset define by \[\mathcal{P}=\footnote{by inculding $\langle 0,0 \rangle$ as well}\{X,\langle x_1,x_2 \rangle :x_1|x_2\}
+ \]
+Now lets look at $\mathcal{P}$ over $X$ , first notice that when its have chain size $|t+1|\Rightarrow$ exists sequence of $ x_1\preceq \dots \preceq x_{t+1}$ such that $x_1 | x_2 \dots |x_{t+1}\Rightarrow$ exist  $T\subseteq X$.
+\\\ on the other hand if  $\mathcal{P}$ over $X$ ,  have anti-chain size $|s+1|\Rightarrow$ exist sequence of $ x_1\npreceq \dots \npreceq x_{s+1}$ such that $x_1 \nmid x_2 \nmid \dots  \nmid x_{s+1}\Rightarrow$ exist  $S\subseteq X$.
+Since \[\omega(X)\alpha(X)\geq \omega(X) \frac{|X|}{\mathcal{X}(X)} \geq\footnote{Mirsky} |X|
+\]
+its following that splinting $X$ into  $\mathcal{X}(X)$ anti-chains, one of them will be at size $ \frac{|X|}{\mathcal{X}(X)}$.
+if $\alpha(X)\geq s+1$ then $S\subseteq X$, else $\alpha(X)\leq s$ and
+\[
+\omega (X)\geq \frac{|X|}{\alpha(X)}\le \frac{st+1}{s} = t+\frac{1}{s}
+\]
+and we get that $\omega (X) \geq t+1\Rightarrow T \subseteq X$
+ \end{proof}
+ \subsection*{Problem 4.}
+ Consider the following Poset define by \[\mathcal{P}=\{\mathscr{F},\langle S_1,S_2 \rangle :S_1\subseteq S_2\}
+ \] where  $\mathscr{F}$ is collection $\mathscr{F} = \{ S_1, \dots , S_n\}$ of n sets.
+ \pagebreak
+ \begin{prop} both chain and anti-chain of $\mathcal{P}$  are union-free sets\end{prop}\begin{proof}
+first by noticing that when its have chain $\Rightarrow$ exists sequence of $ S_1\preceq \dots \preceq S_{k}$ such that $S_1 \subseteq S_2 \dots \subseteq S_{k}$ let mark this set of element as $\mathcal{S}_{chain}$ .  lets assume that exsit some $S_i,S_j,S_k\in \mathcal{S}_{chain}$ s.t $S_i\cup S_j=S_k$,we can that hold only when $|S_i|,|S_j| \le |S_k|$ but the  Poset yield $S_i\preceq S_k$ and $S_j\preceq S_k$ hence $S_i=S_k$ or $S_j=S_k$ which lead to contradiction  since $\mathcal{S}_{chain}$ is set.\\\\
+Define $\mathcal{S}_{anti-chain}$ such that   \[ \mathcal{S}_{anti-chain}=\{S_i,S_j : S_i\nsubseteq  S_j \wedge S_j\nsubseteq  S_i\quad \text{s.t } S_i,S_j \in \mathscr{F}\quad \forall i,j \} \]
+ By assuming that exsit some $S_i,S_j,S_k\in \mathcal{S}_{anti-chain}$ s.t $S_i\cup S_j=S_k$. its followed that $S_i\subseteq S_k$ but $S_i\nsubseteq  S_j$ and we get an contradiction.
+  \end{proof}
+
+ \begin{claim*}
+  every collection $\mathscr{F} = \{ S_1, \dots , S_n\}$ of n sets contains a sub-collection $S \subseteq  \mathscr{F}$ of at least
+$\sqrt{n}$ sets which is union-free\end{claim*}
+\begin{proof}
+let $\alpha (\mathcal{P})$ be the longest $anti-chain$ of $\mathcal{P}$ over $\mathscr{F}$.  If $\alpha (\mathcal{P})\geq \sqrt{n}$ then exist such $S\in \mathscr{F}$
+. and if $\alpha (\mathcal{P})< \sqrt{n}$
+\[\frac{n}{\omega(\mathcal{P})} =\frac{|\mathscr{F}|}{\omega(\mathcal{P})}\leq \alpha (\mathcal{P})< \sqrt{n}
+\]
+\[\omega(\mathcal{P}) \geq \sqrt{n}
+\]
+And again by proposition 4 we get that exist such $S\in \mathscr{F}$
+
+\end{proof}
+\subsection*{Problem 5.}
+\begin{claim*}
+for  a finite poset $\mathcal{P}$ and let x, y be two elements of $\mathcal{P}$  that are incomparable under
+$\mathcal{P}$ . then $\mathcal{P}$  has a linear extension in which $x < y$.
+\end{claim*}
+\begin{proof} Let $\mathcal{P}=(X,\preceq)$ be a finite partial order in which $x, y\in X$ are incomparable. now lets define new post $\hat{\mathcal{P}}=(X,\hat{\preceq})$  
+\[
+  \hat{\preceq} =
+  \begin{cases}
+   w\hat{\preceq}z &\text{if } w\preceq z  \\
+   w\hat{\preceq}z &\text{if } z\preceq y\wedge x\preceq w \\
+                           y \hat{\preceq} x        
+  \end{cases}
+\]
+\begin{list}{•}{}
+\item $\hat{\preceq}$ is reflexive since $\preceq$ is reflexive
+\item $\hat{\preceq}$ is Transitive since $\preceq$ is Transitive , and we apply apply only steps that respect the Transitive property of   $\preceq$
+\item $\hat{\preceq}$ is Anti-symmetric. consider $w\hat{\preceq}z$ and $z\hat{\preceq}w$  and let assume that $w\neq z$. if $x=w$ or $y=w$ or $x=w,y=z$ its immediate lead to  contradiction.\\ 
+and when $w\hat{\preceq}z \Rightarrow z\preceq y\wedge x\preceq w$ and $z\hat{\preceq}w \Rightarrow w\preceq y\wedge x\preceq z$  then $x\preceq z \preceq y $ contradiction to the fact that $x,y$ are incomparable, hence $w\hat{\preceq}z$ and $z\hat{\preceq}w$ lead to $w=z$\footnote{i actually miss an case but its kind of similar proof}
+\end{list}
+Hence $\hat{\mathcal{P}}$ is poset where $x\hat{\preceq} y$ and its contains less incomparable pairs than $\preceq$ does. If $\hat{\mathcal{P}}$ is linear then we done. otherwise exists some incomparable  $w,z$ and we can extend $\hat{\preceq}$ to $\hat{\preceq}_1$ and follow the proses until we cover all the chains or get  some $\hat{\preceq}_k $ linear and respect $\mathcal{P}$ where $x<y$
+\end{proof}
+\subsection*{Problem 6.}
+\begin{claim*}
+in the setting of Arrow’s Theorem, if the individuals have only two options,
+then they can come up with a non-dictator social choice function.
+\end{claim*}
+\begin{proof}
+Lets proof that the democracy/majority voting system model satisfies the 3 condition of the Arrow’s Theorem when $N$ voters choose from $|\{A,B\}|=2$ choices.
+\[F:\mathrm {S_2} ^{N}\to \frac{\sum^{N}_i \mathds{1}[S_i \text{ choose } A>B] }{N} \quad \text{i.e  and indicator if $S_i$ prefer }A \]
+if $F\geq \frac{1}{2}$  return $(A,B)$ else $(B,A)$\\
+\textbf{Monotonicity} 
+For two preference profiles $R=(R_1, …, R_N)$ and $S=(S_1, …, S_N)$ such that both profiles prefer $A>B$ but
+\[
+0.5<
+\frac{\sum^{N}_i \mathds{1}[S_i \text{ choose } A>B] }{N}<\frac{\sum^{N}_i \mathds{1}[R_i \text{ choose } A>B] }{N}
+\]
+more people support $(A,B)$ and its yield that $F$ is monotone\footnote{its the same idea for the monotone decrease case $B>A$ }\pagebreak
+
+\textbf{Unanimity}
+If alternative, $B<A$ for all orderings $R_1 , …, R_N,$ $R_i=(A,B)\forall i$ then $F(R_1, R_2, …, R_N)=(A,B) $ and $A$ is ranked strictly higher than $B$ by $F$. its immediate  from the way we construct $F$
+\[0.5<\frac{\sum^{N}_i \mathds{1}[R_i \text{ choose } A>B] }{N}\]\\\\
+\textbf{Non-dictatorship} There is no individual, i whose strict preferences always prevail consider the profile define
+\[R=(R_1,R_2,\dots R_N)\quad \forall i R_i=(A,B)
+\] 
+And
+\[S=(S_1,S_2,\dots S_N)\quad \forall i S_i=(B,A)
+\]
+For the 2 given profiles there is no individual who can change the result.
+\end{proof} 
+\subsubsection*{(*)}thanks for the tips!  just saw your notes on assignment 3 and I will apply them from now on $:)$
+\end{document}

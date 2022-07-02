@@ -1,0 +1,279 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\newtheorem*{claim*}{claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{claim}
+\newtheorem*{theorem*}{Theorem}
+\usepackage{dsfont}
+
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+\begin{document}
+\begin{center}
+\section*{Basic Combinatorics - Spring, Home Assignment 2}
+\end{center}
+\subsection*{Problem 1.}
+\begin{claim*}\textbf{1} For any $1 \leq k \leq n$ and $0 < x < 1$\[\binom{n}{k}  x ^ k \leq (1 + x) ^ n \leq e ^ {xn}\]
+\end{claim*}
+\begin{proof}
+ First lets notice that for $\forall x,k$ $x^k>0$.now using the newton binomial we can get the following
+ \[
+ (1 + x) ^ n=\sum^n_{i=0}\binom{n}{i}x^i=\binom{n}{0}x^0+\binom{n}{1}x^1+\dots \underbrace{\binom{n}{k}x^k}_{\text{part of the sum}}+\binom{n}{k+1}x^{k+1}+\dots
+ \binom{n}{n}x^n
+ \] 
+because each one of the sum's element is non negtive 
+the following hold
+\[ \binom{n}{k}x^k \leq (1 + x) ^ n
+\]
+
+using Bernoulli's Inequality, for $\forall n \in N $ and $x>0$
+\[0< 1+x\leq\left(1+\frac{x}{n}\right)^n\xrightarrow [n\to\infty]{} e^x
+\]
+we can raise both side in power of n and we will get the complete formula
+\[\binom{n}{k}  x ^ k \leq (1 + x) ^ n \leq e ^ {xn}\]
+\end{proof}
+\begin{claim*}\textbf{2} For any $1 \leq k \leq n$ and $0 < x < 1$\[\ \binom{n}{k} \leq (\frac{en}{k})^k\]
+\end{claim*}
+\begin{proof}
+
+if k=n we Instantly get using the result of claim 1.
+\[1=\binom{n}{n} \leq (\frac{en}{n})^n=e^n\]
+now for $k<n$ and using above inequality lets set $0<x=\frac{k}{n}<1$
+\[\binom{n}{k}  (\frac{k}{n} )^ k \leq e ^ {\frac{k}{n}n}
+\Rightarrow \binom{n}{k}\leq (\frac{n}{k} )^ ke^k=(\frac{en}{k} )^ k
+\]
+\end{proof}
+\begin{claim*}\textbf{3} For any $1 \leq k \leq n$ and $0 < x < 1$
+\[\ \sum_{i=0}^k\binom{n}{i} \leq (\frac{en}{k})^k\]
+\end{claim*}
+\begin{proof}
+using the same way as above and claim 1 lets \\$k<n$  set $0<x=\frac{k}{n}<1$
+\[\sum^n_{i=1}\binom{n}{i}(\frac{k}{n})^i\leq(1+\frac{k}{n})^n =\sum^n_{i=0}\binom{n}{i}(\frac{k}{n})^i \leq   e^{n\frac{k}{n}}=e^k
+\]
+divide by $(\frac{k}{n})^k$
+\[
+\ \sum^n_{i=0}\binom{n}{i} \leq \sum^n_{i=1}\binom{n}{i}(\frac{k}{n})^{i-k}\leq  e^k(\frac{n}{k})^{-k}=(\frac{en}{k})^k
+\]
+the first inequality holds because for $i \leq k$ we get $i-k<0$
+\end{proof}
+\subsection*{Problem 2.}
+\begin{theorem*}
+For all n $\geq$2, $nlogn-n<log(n!)<nlogn$
+i.e $\ln(n!)=\Theta (nln(n))$
+
+\end{theorem*}
+\begin{proof}
+First we note that $\ln(n!)=\sum ^n_klnk$ and using Riemann sum approximation, and the fact that ln is a non-decreasing function on $[1,\infty )$ ,for all $x\in [k,k+1)$ Integrating we get
+\[
+\ln(k) \leq ln(x) \leq \ln(k+1)
+\]
+\[
+ \int_k^{k+1} \ln(k) dx \leq \int_k^{k+1} \ln(x) dx \leq \int_k^{k+1} \ln(k+1) dx .
+\]
+Summing for k between 1 and n-1, we get
+\[
+\sum_{k=1}^{n-1} \ln(k) \leq \sum_{k=1}^{n-1} \int_k^{k+1} ln(x) dx = \int_1^{n} \ln(x) dx \leq \sum_{k=1}^{n-1} \ln(k+1) = \sum_{k=2}^{n} \ln(k)
+\] 
+adding ln(1),ln(n)\[
+\int_1^{n} \ln(x) dx  + \ln(1)+ln(n) \leq \sum_{k=1}^{n-1} \ln(k) +\dfrac{ln(n)}{2}-\ln(1) \leq \int_1^{n} \ln(x) dx + \ln(n).
+\] 
+hence for
+\[
+\int_1^{n} \ln x dx = x\ln x -x|^n_1 = n\ln n - n +1
+\]
+we get
+\[
+n\ln(n) +\dfrac{ln(n)}{2} - n + 1 \leq \sum_{k=1}^{n} \ln k \leq n\ln -n +  \dfrac{3\ln(n)}{2} +  1 
+\]
+\end{proof}
+using the theorem above lets add to the of power e
+\[\exp(n\ln n - n + 1+\dfrac{\ln(n)}{2}) \leq \exp(\ln(n!))\leq \exp(\dfrac{3\ln(n)}{2}+n\ln n - n  +  1)
+\]
+\[
+\\
+\Leftrightarrow  n!=\Theta(\sqrt{n}e(\frac{n}{e})^n)
+\]
+\subsection*{Problem 3.}
+\subsubsection*{(3.1)} Let q(n) denote the number of ordered sets of positive integers whose sum is n, lets define $Q$ such that $Q$ is  sequence size n of 1's .
+\[
+Q: {1\nabla 1\nabla1\nabla1 \nabla \dots \nabla   1}
+\]
+in total we looking at n times 1 and n-1 $\nabla$. now lets say we have 2 operators 
+$\lbrace + , |\rbrace$ we can replace each time $\nabla$ with ine of them, if we choose the $+$ we "merge" both of the sums, but if we choose $|$ we "slice" the set.hence the sum of $Q$ will always stay n
+and each unique  decision of choosen operator in order will give us unique  ordered sets of positive, we can choose 2 operators total n-1 times, hence the number of ordered sets is 
+\[
+q(n)=2^{n-1}
+\]
+\subsubsection*{(3.2)}
+using the group  $Q$ define above, to find all  the ordered sets size k hows sum is n, we can say that now we must replace k-1 of $\nabla$ with $|$, witch leaves us with total of k sets, and all the rest $\nabla$ will get the $+$ operator immediately.
+in total we have k-1 of $|$  to rplace k-1 operator of $\nabla$ from total $n-1\nabla$ ,and by suuming all the option over k sizes of group we get.
+\[
+\sum_{k=1}^{n-1} \binom{n-1}{k-1}=\sum_{k=0}^{n} \binom{n-1}{k}=2^{n-1}=q(n)
+\]
+\subsection*{Problem 4.}
+ Let p(n) denote the number of unordered sets of positive integers whose sum is n. 
+lets  define $p_k(n)$ to be number  of unordered sets of size k of positive integers whose sum is n.\\
+using the result of problem 3 we know that for ordered set size k we have $\binom{n-1}{k-1}$ option.if we looking at k different element we will have total of.
+\[
+p_k(n)=\dfrac{\binom{n-1}{k-1}}{k!}
+\]
+but we might have some repeat numbers so its will be at most
+\[
+p_k(n)\geq \dfrac{\binom{n-1}{k-1}}{k!}
+\]
+since we define q(n) s.t $p(n)=\sum_k p_k(n)$ the following hold.
+\[
+p(n)=\sum_k p_k(n)\geq 
+{\max}_{1 \geq k \geq n}  \dfrac{\binom{n-1}{k-1}}{k!}
+\]
+
+\begin{claim*}
+there is an absolute constant  $c>0$ for which $p(n) \geq e^{c\sqrt{n}}$
+\end{claim*}
+\begin{proof}
+\[
+p(n)=\geq 
+{\max}_{1 \geq k \geq n}  \dfrac{\binom{n-1}{k-1}}{k!}
+\geq \dfrac{\binom{n-1}{k-1}}{k!}
+=\frac{1}{k!}\frac{k}{n}\binom{n}{k}
+\]
+using (*)$\binom{n}{k} \geq (\frac{n}{k})^k$ (**)$k!\geq  ek(\frac{n}{k})^k$, 
+\[
+\frac{1}{k!}\frac{k}{n}\binom{n}{k}
+\geq \underbrace{\frac{1}{ek(\frac{n}{k})^k}}_{**}\text{  }
+\underbrace{(\frac{n}{k})^k}_{*}
+\frac{k}{n}
+\]
+for $k=\sqrt{n}$
+\[
+\frac{1}{e\sqrt{n}(\frac{n}{\sqrt{n}})^{\sqrt{n}}}
+(\frac{n}{\sqrt{n}})^{\sqrt{n}}
+\frac{\sqrt{n}}{n}=\frac{e^{\sqrt{n}}}{en}=\frac{e^{\sqrt{n}}}{e^{1+ \ln (n)}}
+\]
+using the detention of limit ,for some $1> \epsilon >0$
+\[
+\frac{1+\ln (n)}{\sqrt{n}}\text{  }\overrightarrow{n\rightarrow \infty}
+\text{  }0\Rightarrow \frac{1+\ln (n)}{\sqrt{n}} < \epsilon \Rightarrow 1+\ln (n) > \epsilon \sqrt{n} \]
+hence for $c=1-\epsilon $ ,$c>0$
+\[
+\frac{e^{\sqrt{n}}}{e^{1+ \ln (n)}}\leq \frac{e^{\sqrt{n}}}{e^{\epsilon \sqrt{n}}}=e^{\sqrt{n}}-e^{\epsilon \sqrt{n}}=e^{c\sqrt{n}}
+\]
+\end{proof}
+\subsection*{Problem 5.}
+Let $\pi (m, n)$ denote the set of prime numbers in the interval [$m,n$].
+\subsubsection*{(5.1)}
+we can see the following  $[m,2m]$
+\[
+\{m+1,m+2,...,2m\}
+\]
+now lets partition it to prime and and non prime element s.t
+\[
+\{m+1,m+2,...,2m\} \setminus \pi(m+1,2m)= c(m+1,2m)
+\]
+\[
+ n \in c(m+1,2m) \leftrightarrow \{ n\in  [m,2m] \vee n \text{ is not prime} \}
+\]
+now lets look at $\binom{2m}{m}$
+\[
+\binom{2m}{m}=\frac{2m(2m-1)...(m+1)}{m!}=\frac{1}{m!} \left(\prod\limits_{p\in \pi(m+1,2m)}p\right)  \left(\prod\limits_{n\in c(m+1,2m)}n\right)\]
+since for any $m+1 \geq p \geq 2m , p\in \pi(m+1,2m)$\\
+i claim when $p>m$  thus 
+\[
+ m!  \ndiv  \left(\prod\limits_{p\in \pi(m+1,2m)}p\right)
+\]
+and we get 
+\[\binom{2m}{m}=\underbrace{ \dfrac{\left(\prod\limits_{n\in c(m+1,2m)}n\right)}{m!}}_{\geq 1}\left(\prod\limits_{p\in \pi(m+1,2m)}p\right)
+\geq \left(\prod\limits_{p\in \pi(m+1,2m)}p\right)
+\]
+\subsubsection*{(5.2)}
+first lets notice that 
+\[
+4^{n}=2^{2n}=(1+1)^{2n}=\sum^{2n}_{k=0}\binom{2n}{k} > \binom{2n}{n},\]
+\[
+\text{and }2\cdot 2^{2n+1} > \binom{2n+1}{n} 
+\Rightarrow \binom{2n+1}{n} \leq 2^{2n}
+\]
+since its apper twice in the binomial coefficient, 
+ so both at scenario (even,odd) using the floor will give us bound for the given binom 
+\[
+ \left(\prod\limits_{p\in \pi(\lfloor m/2 \rfloor +1,2m)}p\right)\leq \binom{m}{\lfloor m/2 \rfloor} \leq 2^m
+\] 
+now lets use the floor function we can notice that
+ \[\lfloor \lceil m/2^{2k} \rceil/2^k \rfloor =\lfloor m /2^{3k}\rfloor \]
+ hence for $2m,m,m/2$
+\[
+ \left(\prod\limits_{p\in \pi(\lfloor m/4 \rfloor +1,\lceil m/2 \rceil )}p\right)\left(\prod\limits_{p\in \pi(\lceil m/2 \rceil+1,m)}p\right)\leq \binom{m}{\lfloor m/2 \rfloor}\binom{\lceil m/2 \rceil}{\lfloor m/4 \rfloor}\leq 2^m2^{\lfloor m/2 \rfloor}
+\]
+we can apply  it for all m,$\lceil m/2 \rceil,\lceil m/4 \rceil $...
+\begin{align}
+\left(\prod\limits_{p\in \pi(1,m)}p\right)= \left(\prod\limits_{p\in \pi(0+1,1)}p\right)\cdots \left(\prod\limits_{p\in \pi(\lceil m/2 \rceil+1,m)}p\right) \leq
+\\
+{m \choose {\lfloor m/2 \rfloor}}{{\lceil m/2 \rceil} \choose {\lfloor m/4 \rfloor}}{{\lceil m/4 \rceil} \choose {\lfloor m/8 \rfloor}}\cdots \leq   2^m\cdot 2^{{\lfloor m/2 \rfloor}} \cdot  2^{{\lfloor m/4 \rfloor}} \cdots
+\end{align}
+\[ \leq 2^{m + {\lfloor m/2 \rfloor} + {\lfloor m/4 \rfloor} + \cdots } \leq 2^{m(1 + 1/2 + 1/4 + \cdots) } \leq  2^{2m} = 4^m
+\]
+\subsubsection*{(5.3)}
+using line (1),(2) we sow above 
+\[ \log\left(\prod\limits_{p\in \pi(1,n)}p\right)< \log(4^m) \Rightarrow O(2n\log 2)
+\]
+\[
+\log\left(\prod\limits_{p\in \pi(1,n)}p\right)= \sum_{ I=(\lceil2i/i\rceil+1,i)i\in \pi(1,n)}\log\left(\prod\limits_{I}p\right)
+\leq \sum_{ I(\lceil2i/i\rceil+1,i)i\in \pi(1,n)}
+\log\underbrace{{i \choose {\lfloor i/2 \rfloor}}}_{2^n\leq \binom{n}{2n}}
+\]
+since $2^n\leq \binom{n}{2n}$ and the result from sector 5.1 we can bound the following.
+\[
+\prod_{ I=(\lceil2i/i\rceil+1,i)i\in \pi(1,n)}{{i \choose {\lfloor i/2 \rfloor}}}  <
+\left(\prod\limits_{p\in \pi(1,n)}p\right)\leq (4^n)  \]
+log both sides
+\[
+\log(\prod_{ I=(\lceil2i/i\rceil+1,i)i\in \pi(1,n)} \binom{i}{2i}) \leq |\pi(1,n)|\log(2^{\lg(n)\log2}) < \log(4^n)
+\]
+
+and we finality get\[ |\pi(1,n)|\lg(n)\log2 < 2n\log2 \Leftrightarrow |\pi(1,n)|=O(\dfrac{n}{\log(n)})
+\]
+\subsection*{Problem 6.}
+\begin{claim*}
+Every tournament $T$ of order $|V|=2^k$ contains an undominated set of size $\leq k$.
+\end{claim*}
+\begin{proof}
+the base case of the induction is trivial for $k=1,2$
+lets assume the hypothesis hold for some for $2^k$, now lets look at $\hat{T}$ of order $|V|=2^{k+1}$ lets look at the avarge $\text{deg}_{out}$ i.e
+\[
+  \frac{|E|}{|V|} = \dfrac{2^{k+1}(2^{k+1}-1)}{2*2^{k+1}}=2^k-\dfrac{1}{2}
+\]
+hence exist some $v \in |V|$ such that $v_{\text{deg}_{out}}\geq 2^k \Rightarrow v_{\text{deg}_{in}} < 2^k$.  now lets choose 
+some $2^k = |S|,\lbrace S:S \subseteq V \rbrace$ such that $v$ dominated by any  $v_s\in S$.
+lets apply our induction assumption on sub-tournament $S$,
+since exist  $\hat{S} \subseteq S$
+size $ | \hat{S} | \leq k$ that not dominated by any other vertex$\Rightarrow |\hat{S}\cup{v}|\leq k+1$ sub-set size $k+1$ that not dominated in $|T|=2^{k+1}$
+
+\end{proof}
+now lets look at some random tournament $T$ that any $e\in |E|$ have the same probability to be in each direction \[
+ \Pr (e: u \rightarrow v)=
+ \Pr (e: v \rightarrow u)=1/2
+\]
+ $\Rightarrow$ the probability that  v is dominates on some u is $1/2$
+\\ $\Rightarrow$  the probability v is dominates on $S\subseteq V$ size $k$ is $1/2^k$
+\\$\Rightarrow$  the probebilty that e dominated by some $|S|=k$ is $(1-1/2^k)$ 
+\\$\Rightarrow$  the probebilty that $|T/S|=n-k$ dominated by some $|S|=k$ 
+\\is $(1-1/2^k)^{n-k}$ 
+\\the expected number of group size k can bound from above with $n \choose k$, hence when n  holds
+\[
+\binom{n}{k}(1-1/2^k)^{n-k} <1
+\]
+then there is an n-vertex tournament so that every set of k vertices is dominated.\\
+now lets use the property proved in Q(1) and we can bound the following for any $k\geq 2$
+\[
+\binom{n}{k}(1-1/2^k)^{n-k} \leq 
+\underbrace{e^{-\frac{(n-k)}{2^k}}}_{Q1 \text{ and }1-k
+\leq e^k} \underbrace{\left(\dfrac{en}{k}\right)^k}_{\leq \binom{n}{k}}<1
+\]
+hence for $n>k+2^k\cdot k^2$ the  following hold .
+
+\end{document}

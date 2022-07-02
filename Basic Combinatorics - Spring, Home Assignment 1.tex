@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{claim}
+\begin{document}
+\begin{center}
+\section*{Basic Combinatorics - Spring, Home Assignment 1}
+\end{center}
+\subsection*{Problem 1.}
+Given $n\equiv 1$(mod 8) we looking for the  number of subsets n-element set, whose
+size is 0 (mod 4).\\
+Let $S_n(a,b)$ be the sum of the binomial coefficients 
+with $k\equiv a$ (mod b).
+\[ 2^n=(1+1)^n= \binom{n}{0}+\binom{n}{1}+\binom{n}{2}+\cdots+\binom{n}{n}=S_n(1,2)+S_n(0,2)
+\]
+\[ (1+i)^n=\binom{n}{0}+\binom{n}{1}i-\binom{n}{2}-\binom{n}{3}i+\binom{n}{4}+\binom{n}{5}i-\cdots= S_n(0,4)+iS_n(1,4)-S_n(2,4)-iS_n(3,4)
+\]
+\[(1-i)^n=\binom{n}{0}-\binom{n}{1}i-\binom{n}{2}+\binom{n}{3}i+\binom{n}{4}-\binom{n}{5}i-\cdots=S_n(0,4)-iS_n(1,4)-S_n(2,4)+iS_n(3,4)
+\]
+we can notice that the amount of subsets of a n-element set, whose size is 0(mod4) when $n\equiv 1$(mod 8)
+\[ \binom{n}{0}+\binom{n}{4}+\binom{n}{8}+\cdots =S_n(1,4)
+\]
+and based on the symetric  propertyy of the binomial its sufistace to add the binomal form of 0 :
+\[ 0=(1-1)^n=\binom{n}{0}-\binom{n}{1}+\binom{n}{2}-\binom{n}{3}+\cdots =S_n(0,2)-S_n(1,2)
+\]
+moreover we can see taht $S_n(0,2)=S_n(1,2)=2^{n-1}$\\
+while summing  $2^n+(1+i)^n+(1-i)^n+0$ them will leave us with 
+\[4\left(\binom{n}{0}+\binom{n}{4}+\binom{n}{8}\cdots\right)=4S_n(1,4)=2(S_n(0,2)+S_n(0,4)-S(2,4))
+\]
+follow the property at Equating 2 from above $S_n(0,4)-S(2,4)$ can showed as the $i$ part as $\mathbf{R}((i+1)^n)$ following: 
+\[1+i =\sqrt{2}e\pi ^{i/4}\Rightarrow\mathbf{R}((i+1)^n)=2^{n/2}cos((\pi n)/4)
+\]
+now for $n\equiv 1$ (mod 8) lets set in the last equating $1/\sqrt{2}$ summing all up together we get :
+\[2S_n(1,4)=2^{n-1}+2^{(n-2)/2}*2^{-1/2}=
+2^{n-2}+2^{(n-3)/2}
+\]
+\subsection*{Problem 2.}
+Based on the following formula
+\[ 
+\binom{n}{k}=\binom{n}{n-k}\Rightarrow \sum^{n}_{i=0}\binom{n}{i}^2=
+\sum^{n}_{i=0}\binom{n}{i}
+\binom{n}{n-i}
+\]
+acombinatorial proof of the identity above, lets say we have $2n$ student that want to study the "Basic Combinatoric" course, but for some reason the university decide to schedule the course in class with only $n$ seats. so we need to choose group of $n$ student that could have a seat in the class (all the other will watch from zoom), so in total we have 
+\[ 
+\binom{2n}{n}
+\]
+on the other hand lets split all the student into 2 equal size group $n$, now we can choose $k$ student from the first and $n-k$ from the second
+\[ 
+\binom{n}{k}
+\binom{n}{n-k}
+\]
+because we don't care about the order and want to cover all the sub-group sizes from each one of them, we will some up all the sub-group combination and get
+\[ 
+\sum^{n}_{i=0}\binom{n}{i}
+\binom{n}{n-i}=\binom{2n}{n}=\sum^{n}_{i=0}\binom{n}{i}^2
+\]
+\subsection*{Problem 3.}
+Combinatorial proof of the identity. suppose some guy  lets call him  Schrödinger want to place  $r+1$ cats in $n+1$
+boxes one in each box (otherwise they will fight).he can do so while assuming all of them identical ,in total of  
+\[ 
+\binom{n+1}{r+1}
+\]
+different ways.\\but for some reason our guy dont like to do things in the normal way ,he want to put the "boxes inside the cats" he claim that we can look at the first box if we decide to put cat inside we left with $r$ cats to split in the rest n boxes, on the other hand  if we decide to not put cat inside it, we will have $r+1$ cats to split in the rest boxes, hence
+\[ 
+\binom{n+1}{r+1}=\binom{n}{r}+\binom{n}{r+1}
+\]
+now lets look at the case he decide to leave the box empty and we still left with $r+1$ cats to drop in $n$ box and follow the same
+ proses.
+ \[ 
+\binom{n+1}{r+1}=\binom{n}{r}+\binom{n}{r+1}=\binom{n}{r}+\binom{n-1}{r}+\binom{n-1}{r+1}
+\]
+we can now follow the same prosses until we have $r+1$ cats to place in $r+1$ box, witch is equal 1.
+ \[
+ \binom{n+1}{r+1}=\binom{n}{r}+\binom{n-1}{r}+\binom{n-2}{r}+
+ \dots +\binom{r+1}{r}+
+ \binom{r+1}{r+1}
+\]
+now for some $m$ lets look at the first and secound binomial coefficients of it
+ \[
+ \binom{m}{1}=1,\binom{m}{2}=(m^2-m)1/2
+\]
+hence for $r=2$ we will get the following equation
+ \[
+ 2\binom{n+1}{2+1}= 2\sum^{n-2}_{k=1} \binom{n-k}{2}=\sum^{n}_{k=1} (k^2-k)=\sum^{n}_{k=1} k^2-\sum^{n}_{k=1}k
+ \]
+ \[\Rightarrow
+ 2\binom{n+1}{2+1}+\dfrac{n^2+n}{2}=\dfrac{n+3n^2+2n^3}{6}=\sum^{n}_{k=1} k^2
+  \]
+  For general k lets use again the idea described above (with the cats), at first we will the smallest coefficients(1) and the secound will be $r$ and so one while $n>r+1$, so for general $k$ we will find linear formula that nullify the coefficients of the formula polynomial 
+  \\ 
+\subsection*{Problem 4}
+\subsubsection*{4.1}
+\begin{claim}
+$c(p,k)\equiv0$(mod p) when $0<k<p$ is prime 
+\end{claim}
+\begin{proof}
+first look at $c(n,k)$ binomial form
+\[\binom{p}{k}=\dfrac{p!}{k!(p-k)!}=p\dfrac{(p-1)!}{k!(p-k)!}
+\]
+under the assumption that p is the grateset prime that divde the  following equation, so in total we get
+\begin{center}
+0 mod p
+\end{center}
+\end{proof}
+and from the following claim we can immediately get  
+\[
+(1+x)^p=1+c(x,p-1)+x^p \equiv 1 + x^p (mod p)\]
+\begin{theorem}
+Fermat’s Little Theorem (FLT). $b^
+p \equiv b$ (mod p) for any prime $p$ and $b \in F_p$
+\end{theorem}
+\begin{proof}
+At the base case for $b=0\Rightarrow b^k=b$ witch hold $b^k \equiv b$(mod p)
+\\ now using the claim above and our indication for some $b-1$ , we get
+\[b^p=(1+(b-1))^p\equiv 1+(b-1)^p \textsc{mod p}\Rightarrow b^p=1+(b-1)^p=1+b-1
+ \equiv b \textsc{mod p} \]
+ because $(b-1)^p\equiv b-1$ mod p
+\end{proof}
+\subsubsection*{4.2}
+
+lets look at the following formula as the Multinomial theorem \\"is a multinomial coefficient. The sum is taken over all combinations of nonnegative integer indices k1 through km such that the sum of all ki is n. That is, for each term in the expansion, the exponents of the xi must add up to n. Also, as with the binomial theorem, quantities of the form x0 that appear are taken to equal 1 ."\\( from wikipedia )
+\[
+\displaystyle \left(\sum_{i=1}^{m}x_i\right)^n=\sum_{\sum_{i=1}^m k_i=n}^{}\binom{n}{k_1,k_2,k_3.....,k_m}\prod_{i=1}^{m}x_i^{k_i}
+\]
+\begin{theorem}
+Fermat’s Little Theorem (FLT). second proof
+\end{theorem}
+\begin{proof}
+The summation above is summing over all sequences of nonnegative integers, lets express $\alpha$ such as $1 \leq \alpha \leq  p-1$ as a sum of\\ $1_s$ indicators to the power of $(1_1 + 1_2 + 1+ … 1_\alpha)^p$,we will get
+\[
+\alpha^p=\sum_{k_1,k_2,k_3.....,k_\alpha}^{}\binom{p}{k_1,k_2,k_3.....,k_\alpha}
+\]
+for prime $p$ and $k_j \neq p$ for any j, we have
+\[ \textsc{( mod p ) 0}
+\equiv \sum_{k_1,k_2,k_3.....,k_\alpha}^{}\binom{p}{k_1,k_2,k_3.....,k_\alpha}
+\]
+on the other hand for prime $p$ and some $k_j = p$, we have
+\[ \textsc{( mod p ) 1}
+\equiv \sum_{k_1,k_2,k_3.....,k_\alpha}^{}\binom{p}{k_1,k_2,k_3.....,k_\alpha}
+\]
+from the way we express $\alpha$ we know there is  exactly $\alpha$ of this $k_j$ witch hold the theorem
+\end{proof}
+\subsubsection*{4.3}
+Lets $p$ be any prime $p\neq 2$,for round  a carousel of $p$ chairs we looking for the different colouring way using $b$ colors , first if all the chairs apper in a row we looking in total of $b^p$ different colouring. there are  $b$ ways of colouring with the same colour , so we can claim now there is $b^p - b$ ways to colouring chairs using at least 2 different colors. 
+hence for prime $p$ and some $b$ using the "FLT" theorem we now that there is total $p$ ways to route this carousel i.e $b^p-b \equiv 0$ mod p.
+\\and in total including the ways of couriering with only one color we get total
+ \[ b+ \dfrac{b^p-b}{p}
+\]
+distinct ways of painting the chairs.
+\subsection*{Problem 5}
+ For $n$ integers $a_1, a_2, \dots an$, not necessarily distinct, lets look at the following $n$ integers
+  \[
+ a_1, a_1 + a_2, a_1 + a_2 + a_3, \dots , a_1 + a_2 + \dots + a_n.
+\] 
+now lets devide the by $n$
+ \[
+\dfrac{a_1}{n} , \dfrac{a_1 + a_2}{n},  \dfrac{a_1 + a_2+a_3}{n}, \dots , \dfrac{a_1 + a_2 + \dots + a_n}{n}.
+\] 
+ lets look at the $i$ reminisces for each one of them such as $0 \leq r_i \leq n-1 \forall i \in n$
+we can look at the following as
+\[
+ m_1n+r_1, m_2n+r_2,  \dots , m_nn+r_n.
+\] 
+if one of the $r_i$ is 0 we done.\\ otherwise according to the Pigeon-hole principle three is some $r_i=r_j$ lets say that $i<j$ so by reducing them we will get 
+\[
+\sum^{j}_{k=1} a_k - \sum^{i}_{k=1} a_k=n(m_jn+r-m_in-r)=n(m_jn-m_in+0)=n(\dfrac{a_{i+1}+a_{i+2} \dots +a_j}{n})=\sum^{j}_{k=i+1} a_k
+\] 
+and we find him.
+\\\\its my first time "LaTeXing" and i know my English is not perfect at all, hope it was fine :)
+
+
+\end{document}

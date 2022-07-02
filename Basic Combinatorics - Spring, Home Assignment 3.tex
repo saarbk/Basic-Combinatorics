@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\newtheorem*{claim*}{claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{claim}
+\newtheorem*{theorem*}{Theorem}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+\usepackage{amssymb}
+\newtheorem{prop}{Proposition}
+
+\begin{document}
+\begin{center}
+\section*{Basic Combinatorics - Spring, Home Assignment 3}
+\subsubsection*{Saar Barak}
+\end{center}
+\subsection*{Problem 1.}
+\begin{claim*}
+There is an integer $n_0$ such that for any $n\ge n_0$, in every $9$-coloring of the integers $\{1,2,3,\dots,n\}$, one of the $9$ color classes contains $4$ integers $a,b,c,d$ such that $a+b+c=d$.
+\end{claim*}
+\begin{proof}
+based on Ramsay Theorem Let $n_0=K(4,\dots,4)$, where 4 appears $k-1$ times. 
+and lets $c$ be $r$-colouring s.t:\[c:\{1,\dots,n\}\to\{1,\dots, k\}\]
+For graph $K_n$ and labelling of its edge $\{1,\dots,n\}$.
+we can colour any edge $e_{ij}$ with $c(|i-j|)$. we got a $k-1$-colouring of $K_n$. then for $n_0$, we must have a $K_4$ with all  edges different. 
+ for vertices $x\le y\le z \le w$ then \[a=y-x,b=z-y,c=w-z,d=w-x\] Gives a solution
+\end{proof}
+\subsection*{Problem 2.}
+\begin{claim*}
+every tournament on n vertices, contains a transitive tournament on
+$\lfloor \log_2 n \rfloor$ vertices.
+\end{claim*}
+\begin{proof}Using induction for $n=0,1,2$ its holds on empty.
+ W.L.O.G\footnote{we can modify any other tournament to to nearst power of 2 its will still hold for $\lfloor \log_2 n+1 \rfloor$ see (10)  } assume the claim holds for $n\leq 2^k$ now lets look at some tournament on $2^{k+1}$ vertices and we can pick any vertex $v$, and define:
+ \[v_{in}=\{u : \text{ exsit edege } v\leftarrow u\}
+ ,v_{out}=\{u : \text{ exsit edege } v\rightarrow u\}
+ \]
+Hence  $|v_{in}|+|v_{out}|=2^{k+1}-1$ and one of them contain $|2^k|$ edges, lets assume its  $v_{in}$\footnote{ its  equivalence for $v_{out}$} by our assumption its contains transitive tournament $T_{in}$  size $|k|$. 
+now $T_{in}\cup \{v\}$ is sub tournament and any edge points to $v$ hence its transitive tournament on $|k+1|$ vertices.\end{proof}
+\begin{claim*}
+there exists a tournament on n vertices that does not contain a
+transitive tournament on $2 \log_2 n + 2 $ vertices.
+\end{claim*}
+\begin{proof}
+The number of Tournament on $n$ vertices is $2^{\binom{n}{2}}$.The number of tournaments of size $k$ is $k!$, and there are $\binom{n}{k}$ sets of size k, and the number of ways to choose the edges outside the transitive tournament is ${2^{\binom n2 - \binom k2}}$. hence if we show that 
+
+\[k! \binom nk 2^{\binom n2 - \binom k2} < 2^{\binom n2}
+\]
+its yield that for some $k$   the number of n-vertex tournaments with a transitive subtournament on $k$ vertices is smaller than the total number of tournaments.
+\item \begin{eqnarray}
+2^{\binom n2} &>& k! \binom nk 2^{\binom n2 - \binom k2} \\
+2^{\binom k2}&>& k! \binom nk  \\
+&>& k!\frac{n!}{k!(n-k)!} \\
+&>& n(n-1)(n-2) \dotsm (n-k+1)\\
+&>& n^k 
+\end{eqnarray}
+Taking $\log_2$ from (1)(5)
+\item \begin{eqnarray}
+{\binom k2} &>& k\log_2(n)  \\
+\frac{k!}{2(k-2)!}&>& k\log_2(n) \\
+\frac{k!}{k(k-2)!}&>& 2\log_2(n)\\
+k-1&>& 2\log_2(n)\\
+k&>& 2\log_2(n)+1
+\end{eqnarray}
+\end{proof}
+\subsection*{Problem 3.}
+\begin{claim*}
+if an n-vertex graph $G = (V, E)$ has no copy of $K_{2,t}$\footnote{I will use $t+1$ for the proof i.e $K_{2,t+1}$ } then
+\[|E|\le {1\over 2}(\sqrt{t-1}n^{3\over 2}+n)
+\]
+\end{claim*}
+\begin{proof}
+W.L.O.G let $t\ge 1$. we can distinguish that any $e_1,e _2\in E$ have at most$^3$ $t$ neighbours. and each one of them can be part of pair.
+we can consider it as the number of path length   2 in $G$.
+Let $d(v_i)$ be the deg of $v_i\in G$ and we get that:
+\item \begin{eqnarray}
+t\binom n2\geq \sum_{v\in V} \binom{d(v)}{2}\geq n\binom {2|E|/n}{2}
+\end{eqnarray}
+The right-hand side hold from  Jensen’s Inequality and  since its minimized\footnote{convex property } the binomial when all the
+degrees are equal, $d_i = 2|E|/|V|.$
+\item \begin{eqnarray}
+n\binom {2|E|/n}{2}= n\frac{(2|E|/n)(2|E|/n-1)}{2}\ge n\frac{(2|E|/n-1)^2}{2}
+\end{eqnarray}
+And
+\item \begin{eqnarray} t\binom n2 = t\frac{n^2-n}{2}\le t\frac{n^2}{2}
+\end{eqnarray}.We conclude from (11)(12)(13) that
+\item \begin{eqnarray}
+n\frac{(2|E|/n-1)^2}{2} &\leq & t\frac{n^2}{2} \\
+{(2|E|/n-1)^2}&\leq & tn \\
+2|E|/n&\leq & \sqrt{tn}+1 \\
+|E|&\leq^{3} & {1\over 2}(\sqrt{t}n^{3\over 2}+n)
+\end{eqnarray}
+\end{proof}
+\subsection*{Problem 4.}
+\begin{claim*}
+Let $S_1, \dots , S_n \in [n]$  such that $|S_i  \cap S_j | \le 1$ for all $1 \le i < j \le n$ then.
+\[\frac{1}{n}\sum^n_{i=1}|S_i|=O(\sqrt{n})
+\]
+\end{claim*}
+\begin{proof} Let define $G=(V,E)$ such that \[S=\{S_i:S_i\in [n]\},U=\{i\in n\}\text{ and }  E=\{e_{S_k,m}:m\in S_k \},   V =S\cup U  \]
+Its immediate $|V|=2n$ and $G$ is Bipartite since we can dived $V$ into 2 disjoint  independent sets $S$ and $U$, that is  any $e\in E$ connects a vertex in $S$ to one in $U$. hence $G$ has no copy of $K_{2,2}$, using \textbf{Problem 3} we can get that 
+\item \begin{eqnarray}
+|E|&\le& {1\over 2}(\sqrt{2-1}(2n)^{3\over 2}+2n)\\
+\sum^n_{i=1}|S_i|&\le& \sqrt{2}n^{3\over 2}+n\\
+{1\over n} \sum^n_{i=1}|S_i|&\le& \sqrt{2}\sqrt{n}+2\\
+\frac{1}{n}\sum^n_{i=1}|S_i|&=&O(\sqrt{n})
+\end{eqnarray}
+\end{proof}
+\pagebreak
+\subsection*{Problem 5.}
+\begin{theorem*}
+ if $G = (V, E)$ has no copy of $K_{t+1}$ then $|E|\leq (1-\frac{1}{t})\frac{n^2}{2}.$\\(Turan’s Theorem)
+\end{theorem*}
+\begin{proof}
+Let $x = (x_1, . . . , x_n) \in \mathbb{R}^n$ and $f$ to be vector and weight function satisfying \[
+\forall i\text{ } 0 <x_i\leq 1,\sum^n_{i=1} x_i = 1,f(x)=\sum_{i,j\in E} x_ix_j \]
+By taking $x = (\frac{1}{n},\dots , \frac{1}{n})$ we get \item \begin{eqnarray}
+f(x)\geq \sum_{i,j\in E}\frac{1}{n^2}\geq \frac{|E|}{n^2}\end{eqnarray}
+The “weight shifting” method yield to shift the weight between any neighbours $x_i,x_j$ if $e_{i,j} \notin E$. \\We can notice that the sum is maximized when all the
+weight is concentrated on a clique. Since any shift is does not decrease the value of $f$ we can repeat the processes. since $G = (V, E)$ has no copy of $K_{t+1}$ we can have at most $t$ size clique ,let name it $[T]$. we can get lower bound on $f$ :
+\item \begin{eqnarray}
+f(x)&\leq & \sum_{i,j\in [T]}x_ix_j=\sum_{i,j\in [T]}\frac{1}{t^2} \\
+&\leq & \frac{t(t-1)}{2}\frac{1}{t^2}\\
+&\leq & (1-\frac{1}{t})\frac{1}{2}
+\end{eqnarray}
+Combining (25) and (22) to finish the proof
+\item \begin{eqnarray}
+\frac{|E|}{n^2}&\leq & (1-\frac{1}{t})\frac{1}{2}\\
+|E|&\leq & (1-\frac{1}{t})\frac{n^2}{2}
+\end{eqnarray}
+
+\end{proof}
+\end{document}
