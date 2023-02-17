@@ -1,0 +1,48 @@
+span.equation_label { 
+    order: -1;
+  }
+  
+  h1, h2 {
+    margin-bottom: 10px;
+    color: #404040; 
+    font-family: 'Open Sans';
+  }
+  
+  div[class$="_thmheading"], div.proof_heading {
+    font-family: sans-serif;
+  }
+
+  div[class$="_thmcontent"] {
+    background-color: #818181;
+    border-left: .1rem solid #0085A1;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman';  
+  }
+
+  div.proof {
+    background-color: #F0F8FF;
+    border-left: 4px solid #404040;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  div.claim_star {
+  background-color: #818181;
+  border-left: 4px solid #0085A1;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman';
+}
+
+div.claim {
+  background-color: #F5F5F5;
+  border-left: 4px solid #0085A1;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: 'Times New Roman';
+}
+
+div.proof, div.claim_star {
+  margin-top: 20px;
+}

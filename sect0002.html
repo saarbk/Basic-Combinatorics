@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>:  Assignment 2</title>
+<link rel="next" href="sect0003.html" title="Assignment 3" />
+<link rel="prev" href="sect0001.html" title=" Assignment 1" />
+<link rel="up" href="index.html" title="" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/my_style.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html"></a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry"> Assignment 1</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry"> Assignment 2</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Assignment 3</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Assignment 4</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry"> Assignment 5 </span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000003">2  Assignment 2</h1>
+<div class="centered"></div>
+<h2 id="a0000000052">2.1 Problem 1</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000053">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p><b class="bfseries">1</b> For any \(1 \leq k \leq n\) and \(0 {\lt} x {\lt} 1\)</p>
+<div class="displaymath" id="a0000000054">
+  \[ \binom {n}{k} x ^k \leq (1 + x) ^n \leq e ^{xn} \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000055">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>First lets notice that for \(\forall x,k\) \(x^k{\gt}0\).now using the newton binomial we can get the following </p>
+<div class="displaymath" id="a0000000056">
+  \[  (1 + x) ^n=\sum ^n_{i=0}\binom {n}{i}x^i=\binom {n}{0}x^0+\binom {n}{1}x^1+\dots \underbrace{\binom {n}{k}x^k}_{\text{part of the sum}}+\binom {n}{k+1}x^{k+1}+\dots \binom {n}{n}x^n  \]
+</div>
+<p> because each one of the sum’s element is non negtive the following hold </p>
+<div class="displaymath" id="a0000000057">
+  \[  \binom {n}{k}x^k \leq (1 + x) ^n  \]
+</div>
+<p>using Bernoulli’s Inequality, for \(\forall n \in N \) and \(x{\gt}0\) </p>
+<div class="displaymath" id="a0000000058">
+  \[ 0{\lt} 1+x\leq \left(1+\frac{x}{n}\right)^n\xrightarrow [n\to \infty ]{} e^x  \]
+</div>
+<p> we can raise both side in power of n and we will get the complete formula </p>
+<div class="displaymath" id="a0000000059">
+  \[ \binom {n}{k} x ^k \leq (1 + x) ^n \leq e ^{xn} \]
+</div>
+
+  </div>
+</div>
+<p> <div class="claim_thmwrapper theorem-style-plain" id="a0000000060">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">2.1</span>
+  </div>
+  <div class="claim_thmcontent">
+  <p><b class="bfseries">2</b> For any \(1 \leq k \leq n\) and \(0 {\lt} x {\lt} 1\)</p>
+<div class="displaymath" id="a0000000061">
+  \[ \  \binom {n}{k} \leq (\frac{en}{k})^k \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000062">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>if k=n we Instantly get using the result of claim 1. </p>
+<div class="displaymath" id="a0000000063">
+  \[ 1=\binom {n}{n} \leq (\frac{en}{n})^n=e^n \]
+</div>
+<p> now for \(k{\lt}n\) and using above inequality lets set \(0{\lt}x=\frac{k}{n}{\lt}1\) </p>
+<div class="displaymath" id="a0000000064">
+  \[ \binom {n}{k} (\frac{k}{n} )^k \leq e ^{\frac{k}{n}n} \Rightarrow \binom {n}{k}\leq (\frac{n}{k} )^ke^k=(\frac{en}{k} )^k  \]
+</div>
+
+  </div>
+</div>
+<p> <div class="claim_thmwrapper theorem-style-plain" id="a0000000065">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">2.2</span>
+  </div>
+  <div class="claim_thmcontent">
+  <p><b class="bfseries">3</b> For any \(1 \leq k \leq n\) and \(0 {\lt} x {\lt} 1\) </p>
+<div class="displaymath" id="a0000000066">
+  \[ \  \sum _{i=0}^k\binom {n}{i} \leq (\frac{en}{k})^k \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000067">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>using the same way as above and claim 1 lets <br />\(k{\lt}n\) set \(0{\lt}x=\frac{k}{n}{\lt}1\) </p>
+<div class="displaymath" id="a0000000068">
+  \[ \sum ^n_{i=1}\binom {n}{i}(\frac{k}{n})^i\leq (1+\frac{k}{n})^n =\sum ^n_{i=0}\binom {n}{i}(\frac{k}{n})^i \leq e^{n\frac{k}{n}}=e^k  \]
+</div>
+<p> divide by \((\frac{k}{n})^k\) </p>
+<div class="displaymath" id="a0000000069">
+  \[  \  \sum ^n_{i=0}\binom {n}{i} \leq \sum ^n_{i=1}\binom {n}{i}(\frac{k}{n})^{i-k}\leq e^k(\frac{n}{k})^{-k}=(\frac{en}{k})^k  \]
+</div>
+<p> the first inequality holds because for \(i \leq k\) we get \(i-k{\lt}0\) </p>
+
+  </div>
+</div>
+<h2 id="a0000000070">2.2 Problem 2.</h2>
+<p> <div class="theorem_thmwrapper theorem-style-plain" id="a0000000071">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">2.3</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>For all n \(\geq \)2, \(nlogn-n{\lt}log(n!){\lt}nlogn\) i.e \(\ln (n!)=\Theta (nln(n))\) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000072">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>First we note that \(\ln (n!)=\sum ^n_klnk\) and using Riemann sum approximation, and the fact that ln is a non-decreasing function on \([1,\infty )\) ,for all \(x\in [k,k+1)\) Integrating we get </p>
+<div class="displaymath" id="a0000000073">
+  \[  \ln (k) \leq ln(x) \leq \ln (k+1)  \]
+</div>
+<div class="displaymath" id="a0000000074">
+  \[  \int _k^{k+1} \ln (k) dx \leq \int _k^{k+1} \ln (x) dx \leq \int _k^{k+1} \ln (k+1) dx .  \]
+</div>
+<p> Summing for k between 1 and n-1, we get </p>
+<div class="displaymath" id="a0000000075">
+  \[  \sum _{k=1}^{n-1} \ln (k) \leq \sum _{k=1}^{n-1} \int _k^{k+1} ln(x) dx = \int _1^{n} \ln (x) dx \leq \sum _{k=1}^{n-1} \ln (k+1) = \sum _{k=2}^{n} \ln (k)  \]
+</div>
+<p> adding ln(1),ln(n)</p>
+<div class="displaymath" id="a0000000076">
+  \[  \int _1^{n} \ln (x) dx + \ln (1)+ln(n) \leq \sum _{k=1}^{n-1} \ln (k) +\dfrac {ln(n)}{2}-\ln (1) \leq \int _1^{n} \ln (x) dx + \ln (n).  \]
+</div>
+<p> hence for </p>
+<div class="displaymath" id="a0000000077">
+  \[  \int _1^{n} \ln x dx = x\ln x -x|^n_1 = n\ln n - n +1  \]
+</div>
+<p> we get </p>
+<div class="displaymath" id="a0000000078">
+  \[  n\ln (n) +\dfrac {ln(n)}{2} - n + 1 \leq \sum _{k=1}^{n} \ln k \leq n\ln -n + \dfrac {3\ln (n)}{2} + 1  \]
+</div>
+
+  </div>
+</div>
+<p> using the theorem above lets add to the of power e </p>
+<div class="displaymath" id="a0000000079">
+  \[ \exp (n\ln n - n + 1+\dfrac {\ln (n)}{2}) \leq \exp (\ln (n!))\leq \exp (\dfrac {3\ln (n)}{2}+n\ln n - n + 1)  \]
+</div>
+<div class="displaymath" id="a0000000080">
+  \[  \\ \Leftrightarrow n!=\Theta (\sqrt{n}e(\frac{n}{e})^n)  \]
+</div>
+<h2 id="a0000000081">2.3 Problem 3.</h2>
+<h3 id="a0000000082"></h3>
+<p> Let q(n) denote the number of ordered sets of positive integers whose sum is n, lets define \(Q\) such that \(Q\) is sequence size n of 1’s . </p>
+<div class="displaymath" id="a0000000083">
+  \[  Q: {1\nabla 1\nabla 1\nabla 1 \nabla \dots \nabla 1}  \]
+</div>
+<p> in total we looking at n times 1 and n-1 \(\nabla \). now lets say we have 2 operators \(\lbrace + , |\rbrace \) we can replace each time \(\nabla \) with ine of them, if we choose the \(+\) we "merge" both of the sums, but if we choose \(|\) we "slice" the set.hence the sum of \(Q\) will always stay n and each unique decision of choosen operator in order will give us unique ordered sets of positive, we can choose 2 operators total n-1 times, hence the number of ordered sets is </p>
+<div class="displaymath" id="a0000000084">
+  \[  q(n)=2^{n-1}  \]
+</div>
+<h3 id="a0000000085"></h3>
+<p> using the group \(Q\) define above, to find all the ordered sets size k hows sum is n, we can say that now we must replace k-1 of \(\nabla \) with \(|\), witch leaves us with total of k sets, and all the rest \(\nabla \) will get the \(+\) operator immediately. in total we have k-1 of \(|\) to rplace k-1 operator of \(\nabla \) from total \(n-1\nabla \) ,and by suuming all the option over k sizes of group we get. </p>
+<div class="displaymath" id="a0000000086">
+  \[  \sum _{k=1}^{n-1} \binom {n-1}{k-1}=\sum _{k=0}^{n} \binom {n-1}{k}=2^{n-1}=q(n)  \]
+</div>
+<h2 id="a0000000087">2.4 Problem 4</h2>
+<p> Let p(n) denote the number of unordered sets of positive integers whose sum is n. lets define \(p_k(n)\) to be number of unordered sets of size k of positive integers whose sum is n.<br />using the result of problem 3 we know that for ordered set size k we have \(\binom {n-1}{k-1}\) option.if we looking at k different element we will have total of. </p>
+<div class="displaymath" id="a0000000088">
+  \[  p_k(n)=\dfrac {\binom {n-1}{k-1}}{k!}  \]
+</div>
+<p> but we might have some repeat numbers so its will be at most </p>
+<div class="displaymath" id="a0000000089">
+  \[  p_k(n)\geq \dfrac {\binom {n-1}{k-1}}{k!}  \]
+</div>
+<p> since we define q(n) s.t \(p(n)=\sum _k p_k(n)\) the following hold. </p>
+<div class="displaymath" id="a0000000090">
+  \[  p(n)=\sum _k p_k(n)\geq {\max }_{1 \geq k \geq n} \dfrac {\binom {n-1}{k-1}}{k!}  \]
+</div>
+<p><div class="claim_thmwrapper theorem-style-plain" id="a0000000091">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">2.4</span>
+  </div>
+  <div class="claim_thmcontent">
+  <p>there is an absolute constant \(c{\gt}0\) for which \(p(n) \geq e^{c\sqrt{n}}\) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000092">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <div class="displaymath" id="a0000000093">
+  \[  p(n)=\geq {\max }_{1 \geq k \geq n} \dfrac {\binom {n-1}{k-1}}{k!} \geq \dfrac {\binom {n-1}{k-1}}{k!} =\frac{1}{k!}\frac{k}{n}\binom {n}{k}  \]
+</div>
+<p> using (*)\(\binom {n}{k} \geq (\frac{n}{k})^k\) (**)\(k!\geq ek(\frac{n}{k})^k\), </p>
+<div class="displaymath" id="a0000000094">
+  \[  \frac{1}{k!}\frac{k}{n}\binom {n}{k} \geq \underbrace{\frac{1}{ek(\frac{n}{k})^k}}_{**}\text{ } \underbrace{(\frac{n}{k})^k}_{*} \frac{k}{n}  \]
+</div>
+<p> for \(k=\sqrt{n}\) </p>
+<div class="displaymath" id="a0000000095">
+  \[  \frac{1}{e\sqrt{n}(\frac{n}{\sqrt{n}})^{\sqrt{n}}} (\frac{n}{\sqrt{n}})^{\sqrt{n}} \frac{\sqrt{n}}{n}=\frac{e^{\sqrt{n}}}{en}=\frac{e^{\sqrt{n}}}{e^{1+ \ln (n)}}  \]
+</div>
+<p> using the detention of limit ,for some \(1{\gt} \epsilon {\gt}0\) </p>
+<div class="displaymath" id="a0000000096">
+  \[  \frac{1+\ln (n)}{\sqrt{n}}\text{ }\overrightarrow {n\rightarrow \infty } \text{ }0\Rightarrow \frac{1+\ln (n)}{\sqrt{n}} {\lt} \epsilon \Rightarrow 1+\ln (n) {\gt} \epsilon \sqrt{n}  \]
+</div>
+<p> hence for \(c=1-\epsilon \) ,\(c{\gt}0\) </p>
+<div class="displaymath" id="a0000000097">
+  \[  \frac{e^{\sqrt{n}}}{e^{1+ \ln (n)}}\leq \frac{e^{\sqrt{n}}}{e^{\epsilon \sqrt{n}}}=e^{\sqrt{n}}-e^{\epsilon \sqrt{n}}=e^{c\sqrt{n}}  \]
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000098">2.5 Problem 5.</h2>
+<p> Let \(\pi (m, n)\) denote the set of prime numbers in the interval [\(m,n\)]. </p>
+<h3 id="a0000000099"></h3>
+<p> we can see the following \([m,2m]\) </p>
+<div class="displaymath" id="a0000000100">
+  \[  \{ m+1,m+2,...,2m\}   \]
+</div>
+<p> now lets partition it to prime and and non prime element s.t </p>
+<div class="displaymath" id="a0000000101">
+  \[  \{ m+1,m+2,...,2m\}  \setminus \pi (m+1,2m)= c(m+1,2m)  \]
+</div>
+<div class="displaymath" id="a0000000102">
+  \[  n \in c(m+1,2m) \leftrightarrow \{  n\in [m,2m] \vee n \text{ is not prime} \}   \]
+</div>
+<p> now lets look at \(\binom {2m}{m}\) </p>
+<div class="displaymath" id="a0000000103">
+  \[  \binom {2m}{m}=\frac{2m(2m-1)...(m+1)}{m!}=\frac{1}{m!} \left(\prod \limits _{p\in \pi (m+1,2m)}p\right) \left(\prod \limits _{n\in c(m+1,2m)}n\right) \]
+</div>
+<p> since for any \(m+1 \geq p \geq 2m , p\in \pi (m+1,2m)\)<br />i claim when \(p{\gt}m\) thus </p>
+<div class="displaymath" id="a0000000104">
+  \[  m! \hspace{-4pt}\not|\hspace{2pt}\left(\prod \limits _{p\in \pi (m+1,2m)}p\right)  \]
+</div>
+<p> and we get </p>
+<div class="displaymath" id="a0000000105">
+  \[ \binom {2m}{m}=\underbrace{ \dfrac {\left(\prod \limits _{n\in c(m+1,2m)}n\right)}{m!}}_{\geq 1}\left(\prod \limits _{p\in \pi (m+1,2m)}p\right) \geq \left(\prod \limits _{p\in \pi (m+1,2m)}p\right)  \]
+</div>
+<h3 id="a0000000106"></h3>
+<p> first lets notice that </p>
+<div class="displaymath" id="a0000000107">
+  \[  4^{n}=2^{2n}=(1+1)^{2n}=\sum ^{2n}_{k=0}\binom {2n}{k} {\gt} \binom {2n}{n}, \]
+</div>
+<div class="displaymath" id="a0000000108">
+  \[  \text{and }2\cdot 2^{2n+1} {\gt} \binom {2n+1}{n} \Rightarrow \binom {2n+1}{n} \leq 2^{2n}  \]
+</div>
+<p> since its apper twice in the binomial coefficient, so both at scenario (even,odd) using the floor will give us bound for the given binom </p>
+<div class="displaymath" id="a0000000109">
+  \[  \left(\prod \limits _{p\in \pi (\lfloor m/2 \rfloor +1,2m)}p\right)\leq \binom {m}{\lfloor m/2 \rfloor } \leq 2^m  \]
+</div>
+<p> now lets use the floor function we can notice that </p>
+<div class="displaymath" id="a0000000110">
+  \[ \lfloor \lceil m/2^{2k} \rceil /2^k \rfloor =\lfloor m /2^{3k}\rfloor  \]
+</div>
+<p> hence for \(2m,m,m/2\) </p>
+<div class="displaymath" id="a0000000111">
+  \[  \left(\prod \limits _{p\in \pi (\lfloor m/4 \rfloor +1,\lceil m/2 \rceil )}p\right)\left(\prod \limits _{p\in \pi (\lceil m/2 \rceil +1,m)}p\right)\leq \binom {m}{\lfloor m/2 \rfloor }\binom {\lceil m/2 \rceil }{\lfloor m/4 \rfloor }\leq 2^m2^{\lfloor m/2 \rfloor }  \]
+</div>
+<p> we can apply it for all m,\(\lceil m/2 \rceil ,\lceil m/4 \rceil \)... </p>
+<div class="displaymath" id="a0000000112">
+  \begin{align}  \left(\prod \limits _{p\in \pi (1,m)}p\right)= \left(\prod \limits _{p\in \pi (0+1,1)}p\right)\cdots \left(\prod \limits _{p\in \pi (\lceil m/2 \rceil +1,m)}p\right) \leq \\ {m \choose {\lfloor m/2 \rfloor }}{{\lceil m/2 \rceil } \choose {\lfloor m/4 \rfloor }}{{\lceil m/4 \rceil } \choose {\lfloor m/8 \rfloor }}\cdots \leq 2^m\cdot 2^{{\lfloor m/2 \rfloor }} \cdot 2^{{\lfloor m/4 \rfloor }} \cdots \end{align}
+</div>
+<div class="displaymath" id="a0000000113">
+  \[  \leq 2^{m + {\lfloor m/2 \rfloor } + {\lfloor m/4 \rfloor } + \cdots } \leq 2^{m(1 + 1/2 + 1/4 + \cdots ) } \leq 2^{2m} = 4^m  \]
+</div>
+<h3 id="a0000000114"></h3>
+<p> using line (1),(2) we sow above </p>
+<div class="displaymath" id="a0000000115">
+  \[  \log \left(\prod \limits _{p\in \pi (1,n)}p\right){\lt} \log (4^m) \Rightarrow O(2n\log 2)  \]
+</div>
+<div class="displaymath" id="a0000000116">
+  \[  \log \left(\prod \limits _{p\in \pi (1,n)}p\right)= \sum _{ I=(\lceil 2i/i\rceil +1,i)i\in \pi (1,n)}\log \left(\prod \limits _{I}p\right) \leq \sum _{ I(\lceil 2i/i\rceil +1,i)i\in \pi (1,n)} \log \underbrace{{i \choose {\lfloor i/2 \rfloor }}}_{2^n\leq \binom {n}{2n}}  \]
+</div>
+<p> since \(2^n\leq \binom {n}{2n}\) and the result from sector 5.1 we can bound the following. </p>
+<div class="displaymath" id="a0000000117">
+  \[  \prod _{ I=(\lceil 2i/i\rceil +1,i)i\in \pi (1,n)}{{i \choose {\lfloor i/2 \rfloor }}} {\lt} \left(\prod \limits _{p\in \pi (1,n)}p\right)\leq (4^n)  \]
+</div>
+<p> log both sides </p>
+<div class="displaymath" id="a0000000118">
+  \[  \log (\prod _{ I=(\lceil 2i/i\rceil +1,i)i\in \pi (1,n)} \binom {i}{2i}) \leq |\pi (1,n)|\log (2^{\lg (n)\log 2}) {\lt} \log (4^n)  \]
+</div>
+<p>and we finality get</p>
+<div class="displaymath" id="a0000000119">
+  \[  |\pi (1,n)|\lg (n)\log 2 {\lt} 2n\log 2 \Leftrightarrow |\pi (1,n)|=O(\dfrac {n}{\log (n)})  \]
+</div>
+<h2 id="a0000000120">2.6 Problem 6.</h2>
+<p> <div class="claim_thmwrapper theorem-style-plain" id="a0000000121">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">2.5</span>
+  </div>
+  <div class="claim_thmcontent">
+  <p>Every tournament \(T\) of order \(|V|=2^k\) contains an undominated set of size \(\leq k\). </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000122">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>the base case of the induction is trivial for \(k=1,2\) lets assume the hypothesis hold for some for \(2^k\), now lets look at \(\hat{T}\) of order \(|V|=2^{k+1}\) lets look at the avarge \(\text{deg}_{out}\) i.e </p>
+<div class="displaymath" id="a0000000123">
+  \[  \frac{|E|}{|V|} = \dfrac {2^{k+1}(2^{k+1}-1)}{2*2^{k+1}}=2^k-\dfrac {1}{2}  \]
+</div>
+<p> hence exist some \(v \in |V|\) such that \(v_{\text{deg}_{out}}\geq 2^k \Rightarrow v_{\text{deg}_{in}} {\lt} 2^k\). now lets choose some \(2^k = |S|,\lbrace S:S \subseteq V \rbrace \) such that \(v\) dominated by any \(v_s\in S\). lets apply our induction assumption on sub-tournament \(S\), since exist \(\hat{S} \subseteq S\) size \( | \hat{S} | \leq k\) that not dominated by any other vertex\(\Rightarrow |\hat{S}\cup {v}|\leq k+1\) sub-set size \(k+1\) that not dominated in \(|T|=2^{k+1}\) </p>
+
+  </div>
+</div>
+<p> now lets look at some random tournament \(T\) that any \(e\in |E|\) have the same probability to be in each direction </p>
+<div class="displaymath" id="a0000000124">
+  \[  \Pr (e: u \rightarrow v)= \Pr (e: v \rightarrow u)=1/2  \]
+</div>
+<p> \(\Rightarrow \) the probability that v is dominates on some u is \(1/2\) <br />\(\Rightarrow \) the probability v is dominates on \(S\subseteq V\) size \(k\) is \(1/2^k\) <br />\(\Rightarrow \) the probebilty that e dominated by some \(|S|=k\) is \((1-1/2^k)\) <br />\(\Rightarrow \) the probebilty that \(|T/S|=n-k\) dominated by some \(|S|=k\) <br />is \((1-1/2^k)^{n-k}\) <br />the expected number of group size k can bound from above with \(n \choose k\), hence when n holds </p>
+<div class="displaymath" id="a0000000125">
+  \[  \binom {n}{k}(1-1/2^k)^{n-k} {\lt}1  \]
+</div>
+<p> then there is an n-vertex tournament so that every set of k vertices is dominated.<br />now lets use the property proved in Q(1) and we can bound the following for any \(k\geq 2\) </p>
+<div class="displaymath" id="a0000000126">
+  \[  \binom {n}{k}(1-1/2^k)^{n-k} \leq \underbrace{e^{-\frac{(n-k)}{2^k}}}_{Q1 \text{ and }1-k \leq e^k} \underbrace{\left(\dfrac {en}{k}\right)^k}_{\leq \binom {n}{k}}{\lt}1  \]
+</div>
+<p> hence for \(n{\gt}k+2^k\cdot k^2\) the following hold . </p>
+<div class="centered"> <br /></div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="sect0001.html" title="Assignment 1"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title=""><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0003.html" title="Assignment 3"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

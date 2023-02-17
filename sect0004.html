@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>: Assignment 4</title>
+<link rel="next" href="sect0005.html" title=" Assignment 5 " />
+<link rel="prev" href="sect0003.html" title="Assignment 3" />
+<link rel="up" href="index.html" title="" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/my_style.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html"></a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry"> Assignment 1</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry"> Assignment 2</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Assignment 3</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Assignment 4</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry"> Assignment 5 </span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000005">4 Assignment 4</h1>
+<div class="centered"></div>
+<h2 id="a0000000166">4.1 Problem 1.</h2>
+<p> <div class="prop_thmwrapper theorem-style-plain" id="a0000000167">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">1</span>
+  </div>
+  <div class="prop_thmcontent">
+  <p>if \(T(n) = T(n/3) + T(2n/3) + n\) then \(T(n) = O(n \log n)\) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000168">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>using induction, my induction hypothesis will be </p>
+<div class="displaymath" id="a0000000169">
+  \[ T(n) \leq C n \log n, \qquad \forall n {\lt} N,0{\lt}C  \]
+</div>
+<p> Now we get that </p>
+<div class="displaymath" id="a0000000170">
+  \begin{align}  T(n) & = T\left(\frac{n}{3}\right)+T\left(\frac{2n}{3}\right)+n \\ & \leq C \frac{n}{3}\log \frac{n}{3} + C\frac{2n}{3}\log \frac{2n}{3} + n\\ & \leq C\frac{n}{3} \log n- C\frac{n}{3}\log 3 +C\frac{n}{3} \log n- C\frac{2n}{3}\log \frac{3}{2} + n \\ & \leq Cn \log n- C\frac{n}{3}\log 3- C\frac{2n}{3}\log \frac{3}{2} + n\\ & \leq ^{(*)} Cn\log n \end{align}
+</div>
+<p> (31) imply the induction hypothesis, and (34) will hold by choosing \(C\) s.t </p>
+<div class="displaymath" id="a0000000171">
+  \[  n \leq C\frac{n}{3}\log 3 + C\frac{2n}{3}\log \frac{3}{2}  \]
+</div>
+<p> Hence for any \(n\geq 1\) we can choose \(C\) such that </p>
+<div class="displaymath" id="a0000000172">
+  \[ C \geq \frac{1}{\frac{1}{3}\log 3+\frac{2}{3}\log \frac{3}{2}} \thickapprox 1.578  \]
+</div>
+<p> We get that </p>
+<div class="displaymath" id="a0000000173">
+  \[ T(n) = O(n \log n) \]
+</div>
+
+  </div>
+</div>
+<p> <div class="prop_thmwrapper theorem-style-plain" id="a0000000174">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">2</span>
+  </div>
+  <div class="prop_thmcontent">
+  <p>if \(T(n) = 2T(n/2) + n \log n \) then \(T(n) = O(n \log ^2 n)\).</p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000175">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>using induction, my induction hypothesis will be </p>
+<div class="displaymath" id="a0000000176">
+  \[ T(n) \le C n \log ^2 n, \qquad \forall n {\lt} N,0{\lt}C \]
+</div>
+<p> for \(n=2\) </p>
+<div class="displaymath" id="a0000000177">
+  \begin{align}  T(2) & = 2T\left(\frac{2}{2}\right)+2\log 2\\ & \le 2C+n\log n\\ & = O( n \log ^2 n) \end{align}
+</div>
+<p> Hence for any \(n\geq 2\) </p>
+<div class="displaymath" id="a0000000178">
+  \begin{align}  T(n) & = 2T(n)+n \log n\\ & \le 2\log ^2(\frac{n}{2})\frac{n}{2}+n \log n\\ & = O(n \log ^2 n) \end{align}
+</div>
+<p> (39) holds since \(n{\gt}\frac{n+1}{2}\) </p>
+
+  </div>
+</div>
+<p> <div class="prop_thmwrapper theorem-style-plain" id="a0000000179">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">3</span>
+  </div>
+  <div class="prop_thmcontent">
+  <p>Let \(c_1, \dots , c_k\) be k positive reals satisfying \(\sum ^k_{i=1} c_i {\lt} 1\). if \(T(n) =\sum ^k_{i=1} T(c_in) +n \) then \(T(n) = O(n)\) .</p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000180">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>by induction, my induction hypothesis will be </p>
+<div class="displaymath" id="a0000000181">
+  \[ T(n)\le Cn, \qquad \forall n {\lt} N,0{\lt}C \]
+</div>
+<p> Its immediate that \(T(0)\le 0\) now lets </p>
+<div class="displaymath" id="a0000000182">
+  \begin{align}  T(n) & = \sum ^k_{i=1} T(c_in) +n\\ & \le \sum ^k_{i=1} C(c_in) +n\\ & \le Cn\left(\sum ^k_{i=1}c_i +\frac{1}{C}\right)\\ & \le ^{(*)} Cn \end{align}
+</div>
+<p> (42) imply the induction hypothesis, and (44) will hold by choosing \(C\) s.t </p>
+<div class="displaymath" id="a0000000183">
+  \[ C \ge \frac{1}{1-\sum ^k_{i=1}c_i}  \]
+</div>
+<p> Hence for any \(n\ge 1\) (44) holds and we get that </p>
+<div class="displaymath" id="a0000000184">
+  \[ T(n)=O(n)  \]
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000185">4.2 Problem 2.</h2>
+<p> <div class="theorem*_thmwrapper theorem-style-plain" id="a0000000186">
+  <div class="theorem*_thmheading">
+    <span class="theorem*_thmcaption">
+    Theorem
+    </span>
+  </div>
+  <div class="theorem*_thmcontent">
+  <p>Every tournament has a Hamilton path </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000187">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof 1
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(T=(V,E)\) be tournament graph where \(|V|=n\) . using strong induction for \(n\leq 2\) its immediate that hamiltonian path exists. now lets assume its hold for any \(k{\lt}n\). lets choose some \(v\in V\) and define 2 sets such that </p>
+<div class="displaymath" id="a0000000188">
+  \[ V_{in}=\{ u: \overrightarrow {(u,v)}\in E\} ,V_{out}=\{ u: \overrightarrow {(v,u)}\in E\}   \]
+</div>
+<p> Since \(|V_{in}|{\lt}n,|V_{out}|{\lt}n\) by the induction hypothesis exists paths <br />\(P_{in}\in V_{in},P_{out}\in V_{in}\) such that \(P_{in}\) and \(P_{out}\) are hamiltonian paths. now the path \(P_{in}\rightarrow v \rightarrow P_{out}\) is hamiltonian path for all vertices <br />\(|V_{in}|\cup |v| \cup |V_{out}|=n\) </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000189">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof 2
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p> First we can notice that \(\chi (T)=\)<a class="footnote" href="#a0000000190">
+  <sup class="footnotemark">1</sup>
+</a>\(n\) since any 2 vertex connected with an edge . Since \(\chi (T)\leq |P|\) where \(P\) is the longest simple path in \(T\). on the other hand its can be at most \(n\) since \(T\) have \(n\) vertex . we get that \(|P|=n\).<br /><br />Hence since \(P\) is simple path i.e its visit any vertex of the \(T\) exactly once, and \(P\) visit all the vertex or in other worlds \(P\) is Hamilton path in \(T\) </p>
+
+  </div>
+</div>
+<h2 id="a0000000191">4.3 Problem 3.</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000192">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>Any set X of \(st + 1\) integers contains one of the following: </p>
+<dl class="list">
+  <dt>•</dt>
+  <dd><p>A subset \(T = \{  x_1,\dots , x_{t+1}\}  \subseteq X\) of size \(t + 1\) such that \(x_k\) divides \(x_{k+1}\) for every \(1 \le k \le t\). </p>
+</dd>
+  <dt>•</dt>
+  <dd><p>A subset \(S = \{  x_1,\dots , x_{s+1}\}  \subseteq X\) of \(s + 1\) integers such that \(x_i\) does not divides \(x_j\) for every \(x_i,x_j\in S\). </p>
+</dd>
+</dl>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000193">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Consider the following Poset define by </p>
+<div class="displaymath" id="a0000000194">
+  \[ \mathcal{P}=\footnote{by inculding $\langle 0,0 \rangle $ as well}\{ X,\langle x_1,x_2 \rangle :x_1|x_2\}   \]
+</div>
+<p> Now lets look at \(\mathcal{P}\) over \(X\) , first notice that when its have chain size \(|t+1|\Rightarrow \) exists sequence of \( x_1\preceq \dots \preceq x_{t+1}\) such that \(x_1 | x_2 \dots |x_{t+1}\Rightarrow \) exist \(T\subseteq X\). <br /> on the other hand if \(\mathcal{P}\) over \(X\) , have anti-chain size \(|s+1|\Rightarrow \) exist sequence of \( x_1\npreceq \dots \npreceq x_{s+1}\) such that \(x_1 \nmid x_2 \nmid \dots \nmid x_{s+1}\Rightarrow \) exist \(S\subseteq X\). Since </p>
+<div class="displaymath" id="a0000000195">
+  \[ \omega (X)\alpha (X)\geq \omega (X) \frac{|X|}{\mathcal{X}(X)} \geq \footnote{Mirsky} |X|  \]
+</div>
+<p> its following that splinting \(X\) into \(\mathcal{X}(X)\) anti-chains, one of them will be at size \( \frac{|X|}{\mathcal{X}(X)}\). if \(\alpha (X)\geq s+1\) then \(S\subseteq X\), else \(\alpha (X)\leq s\) and </p>
+<div class="displaymath" id="a0000000196">
+  \[  \omega (X)\geq \frac{|X|}{\alpha (X)}\le \frac{st+1}{s} = t+\frac{1}{s}  \]
+</div>
+<p> and we get that \(\omega (X) \geq t+1\Rightarrow T \subseteq X\) </p>
+
+  </div>
+</div>
+<h2 id="a0000000197">4.4 Problem 4.</h2>
+<p> Consider the following Poset define by </p>
+<div class="displaymath" id="a0000000198">
+  \[ \mathcal{P}=\{ \mathscr {F},\langle S_1,S_2 \rangle :S_1\subseteq S_2\}   \]
+</div>
+<p> where \(\mathscr {F}\) is collection \(\mathscr {F} = \{  S_1, \dots , S_n\} \) of n sets. <div class="prop_thmwrapper theorem-style-plain" id="a0000000199">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">4</span>
+  </div>
+  <div class="prop_thmcontent">
+  <p>both chain and anti-chain of \(\mathcal{P}\) are union-free sets</p>
+
+  </div>
+</div></p>
+<div class="proof_wrapper" id="a0000000200">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>first by noticing that when its have chain \(\Rightarrow \) exists sequence of \( S_1\preceq \dots \preceq S_{k}\) such that \(S_1 \subseteq S_2 \dots \subseteq S_{k}\) let mark this set of element as \(\mathcal{S}_{chain}\) . lets assume that exsit some \(S_i,S_j,S_k\in \mathcal{S}_{chain}\) s.t \(S_i\cup S_j=S_k\),we can that hold only when \(|S_i|,|S_j| \le |S_k|\) but the Poset yield \(S_i\preceq S_k\) and \(S_j\preceq S_k\) hence \(S_i=S_k\) or \(S_j=S_k\) which lead to contradiction since \(\mathcal{S}_{chain}\) is set.<br /><br />Define \(\mathcal{S}_{anti-chain}\) such that </p>
+<div class="displaymath" id="a0000000201">
+  \[  \mathcal{S}_{anti-chain}=\{ S_i,S_j : S_i\nsubseteq S_j \wedge S_j\nsubseteq S_i\quad \text{s.t } S_i,S_j \in \mathscr {F}\quad \forall i,j \}   \]
+</div>
+<p> By assuming that exsit some \(S_i,S_j,S_k\in \mathcal{S}_{anti-chain}\) s.t \(S_i\cup S_j=S_k\). its followed that \(S_i\subseteq S_k\) but \(S_i\nsubseteq S_j\) and we get an contradiction. </p>
+
+  </div>
+</div>
+<p><div class="claim*_thmwrapper theorem-style-plain" id="a0000000202">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>every collection \(\mathscr {F} = \{  S_1, \dots , S_n\} \) of n sets contains a sub-collection \(S \subseteq \mathscr {F}\) of at least \(\sqrt{n}\) sets which is union-free</p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000203">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>let \(\alpha (\mathcal{P})\) be the longest \(anti-chain\) of \(\mathcal{P}\) over \(\mathscr {F}\). If \(\alpha (\mathcal{P})\geq \sqrt{n}\) then exist such \(S\in \mathscr {F}\) . and if \(\alpha (\mathcal{P}){\lt} \sqrt{n}\) </p>
+<div class="displaymath" id="a0000000204">
+  \[ \frac{n}{\omega (\mathcal{P})} =\frac{|\mathscr {F}|}{\omega (\mathcal{P})}\leq \alpha (\mathcal{P}){\lt} \sqrt{n}  \]
+</div>
+<div class="displaymath" id="a0000000205">
+  \[ \omega (\mathcal{P}) \geq \sqrt{n}  \]
+</div>
+<p> And again by proposition 4 we get that exist such \(S\in \mathscr {F}\) </p>
+
+  </div>
+</div>
+<h2 id="a0000000206">4.5 Problem 5</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000207">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>for a finite poset \(\mathcal{P}\) and let x, y be two elements of \(\mathcal{P}\) that are incomparable under \(\mathcal{P}\) . then \(\mathcal{P}\) has a linear extension in which \(x {\lt} y\). </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000208">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(\mathcal{P}=(X,\preceq )\) be a finite partial order in which \(x, y\in X\) are incomparable. now lets define new post \(\hat{\mathcal{P}}=(X,\hat{\preceq })\) </p>
+<div class="displaymath" id="a0000000209">
+  \[  \hat{\preceq } = \begin{cases}  w\hat{\preceq }z & \text{if } w\preceq z \\ w\hat{\preceq }z & \text{if } z\preceq y\wedge x\preceq w \\ y \hat{\preceq } x \end{cases}  \]
+</div>
+<dl class="list">
+  <dt>•</dt>
+  <dd><p>\(\hat{\preceq }\) is reflexive since \(\preceq \) is reflexive </p>
+</dd>
+  <dt>•</dt>
+  <dd><p>\(\hat{\preceq }\) is Transitive since \(\preceq \) is Transitive , and we apply apply only steps that respect the Transitive property of \(\preceq \) </p>
+</dd>
+  <dt>•</dt>
+  <dd><p>\(\hat{\preceq }\) is Anti-symmetric. consider \(w\hat{\preceq }z\) and \(z\hat{\preceq }w\) and let assume that \(w\neq z\). if \(x=w\) or \(y=w\) or \(x=w,y=z\) its immediate lead to contradiction.<br />and when \(w\hat{\preceq }z \Rightarrow z\preceq y\wedge x\preceq w\) and \(z\hat{\preceq }w \Rightarrow w\preceq y\wedge x\preceq z\) then \(x\preceq z \preceq y \) contradiction to the fact that \(x,y\) are incomparable, hence \(w\hat{\preceq }z\) and \(z\hat{\preceq }w\) lead to \(w=z\)<a class="footnote" href="#a0000000210">
+  <sup class="footnotemark">4</sup>
+</a> </p>
+</dd>
+</dl>
+<p> Hence \(\hat{\mathcal{P}}\) is poset where \(x\hat{\preceq } y\) and its contains less incomparable pairs than \(\preceq \) does. If \(\hat{\mathcal{P}}\) is linear then we done. otherwise exists some incomparable \(w,z\) and we can extend \(\hat{\preceq }\) to \(\hat{\preceq }_1\) and follow the proses until we cover all the chains or get some \(\hat{\preceq }_k \) linear and respect \(\mathcal{P}\) where \(x{\lt}y\) </p>
+
+  </div>
+</div>
+<h2 id="a0000000211">4.6 Problem 6</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000212">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>in the setting of Arrow’s Theorem, if the individuals have only two options, then they can come up with a non-dictator social choice function. </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000213">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Lets proof that the democracy/majority voting system model satisfies the 3 condition of the Arrow’s Theorem when \(N\) voters choose from \(|\{ A,B\} |=2\) choices. </p>
+<div class="displaymath" id="a0000000214">
+  \[ F:\mathrm{S_2} ^{N}\to \frac{\sum ^{N}_i \mathds {1}[S_i \text{ choose } A{\gt}B] }{N} \quad \text{i.e and indicator if $S_i$ prefer }A  \]
+</div>
+<p> if \(F\geq \frac{1}{2}\) return \((A,B)\) else \((B,A)\)<br /><b class="bfseries">Monotonicity</b> For two preference profiles \(R=(R_1, …, R_N)\) and \(S=(S_1, …, S_N)\) such that both profiles prefer \(A{\gt}B\) but </p>
+<div class="displaymath" id="a0000000215">
+  \[  0.5{\lt} \frac{\sum ^{N}_i \mathds {1}[S_i \text{ choose } A{\gt}B] }{N}{\lt}\frac{\sum ^{N}_i \mathds {1}[R_i \text{ choose } A{\gt}B] }{N}  \]
+</div>
+<p> more people support \((A,B)\) and its yield that \(F\) is monotone<a class="footnote" href="#a0000000216">
+  <sup class="footnotemark">5</sup>
+</a> </p>
+<p><b class="bfseries">Unanimity</b> If alternative, \(B{\lt}A\) for all orderings \(R_1 , …, R_N,\) \(R_i=(A,B)\forall i\) then \(F(R_1, R_2, …, R_N)=(A,B) \) and \(A\) is ranked strictly higher than \(B\) by \(F\). its immediate from the way we construct \(F\) </p>
+<div class="displaymath" id="a0000000217">
+  \[ 0.5{\lt}\frac{\sum ^{N}_i \mathds {1}[R_i \text{ choose } A{\gt}B] }{N} \]
+</div>
+<p><br /><br /><b class="bfseries">Non-dictatorship</b> There is no individual, i whose strict preferences always prevail consider the profile define </p>
+<div class="displaymath" id="a0000000218">
+  \[ R=(R_1,R_2,\dots R_N)\quad \forall i R_i=(A,B)  \]
+</div>
+<p> And </p>
+<div class="displaymath" id="a0000000219">
+  \[ S=(S_1,S_2,\dots S_N)\quad \forall i S_i=(B,A)  \]
+</div>
+<p> For the 2 given profiles there is no individual who can change the result. </p>
+
+  </div>
+</div>
+<div class="centered"> </div>
+
+</div> <!--main-text -->
+<footer id="footnotes">
+<ol>
+  <li id="a0000000190">T is graph on n vertex hence its can be colored by at most \(n\) different colours</li>
+  <li id="a0000000220">by inculding \(\langle 0,0 \rangle \) as well</li>
+  <li id="a0000000221">Mirsky</li>
+  <li id="a0000000210">i actually miss an case but its kind of similar proof</li>
+  <li id="a0000000216">its the same idea for the monotone decrease case \(B{\gt}A\) </li>
+</ol>
+</footer>
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="sect0003.html" title="Assignment 3"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title=""><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0005.html" title="Assignment 5"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

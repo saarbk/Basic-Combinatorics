@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>:  Assignment 1</title>
+<link rel="next" href="sect0002.html" title=" Assignment 2" />
+<link rel="prev" href="index.html" title="" />
+<link rel="up" href="index.html" title="" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/my_style.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html"></a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class=" active current">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry"> Assignment 1</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry"> Assignment 2</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Assignment 3</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Assignment 4</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry"> Assignment 5 </span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000002">1  Assignment 1</h1>
+<div class="centered"></div>
+<h2 id="a0000000007">1.1 Problem 1.</h2>
+<p> Given \(n\equiv 1\)(mod 8) we looking for the number of subsets n-element set, whose size is 0 (mod 4).<br />Let \(S_n(a,b)\) be the sum of the binomial coefficients with \(k\equiv a\) (mod b). </p>
+<div class="displaymath" id="a0000000008">
+  \[  2^n=(1+1)^n= \binom {n}{0}+\binom {n}{1}+\binom {n}{2}+\cdots +\binom {n}{n}=S_n(1,2)+S_n(0,2)  \]
+</div>
+<div class="displaymath" id="a0000000009">
+  \[  (1+i)^n=\binom {n}{0}+\binom {n}{1}i-\binom {n}{2}-\binom {n}{3}i+\binom {n}{4}+\binom {n}{5}i-\cdots = S_n(0,4)+iS_n(1,4)-S_n(2,4)-iS_n(3,4)  \]
+</div>
+<div class="displaymath" id="a0000000010">
+  \[ (1-i)^n=\binom {n}{0}-\binom {n}{1}i-\binom {n}{2}+\binom {n}{3}i+\binom {n}{4}-\binom {n}{5}i-\cdots =S_n(0,4)-iS_n(1,4)-S_n(2,4)+iS_n(3,4)  \]
+</div>
+<p> we can notice that the amount of subsets of a n-element set, whose size is 0(mod4) when \(n\equiv 1\)(mod 8) </p>
+<div class="displaymath" id="a0000000011">
+  \[  \binom {n}{0}+\binom {n}{4}+\binom {n}{8}+\cdots =S_n(1,4)  \]
+</div>
+<p> and based on the symetric propertyy of the binomial its sufistace to add the binomal form of 0 : </p>
+<div class="displaymath" id="a0000000012">
+  \[  0=(1-1)^n=\binom {n}{0}-\binom {n}{1}+\binom {n}{2}-\binom {n}{3}+\cdots =S_n(0,2)-S_n(1,2)  \]
+</div>
+<p> moreover we can see taht \(S_n(0,2)=S_n(1,2)=2^{n-1}\)<br />while summing \(2^n+(1+i)^n+(1-i)^n+0\) them will leave us with </p>
+<div class="displaymath" id="a0000000013">
+  \[ 4\left(\binom {n}{0}+\binom {n}{4}+\binom {n}{8}\cdots \right)=4S_n(1,4)=2(S_n(0,2)+S_n(0,4)-S(2,4))  \]
+</div>
+<p> follow the property at Equating 2 from above \(S_n(0,4)-S(2,4)\) can showed as the \(i\) part as \(\mathbf{R}((i+1)^n)\) following: </p>
+<div class="displaymath" id="a0000000014">
+  \[ 1+i =\sqrt{2}e\pi ^{i/4}\Rightarrow \mathbf{R}((i+1)^n)=2^{n/2}cos((\pi n)/4)  \]
+</div>
+<p> now for \(n\equiv 1\) (mod 8) lets set in the last equating \(1/\sqrt{2}\) summing all up together we get : </p>
+<div class="displaymath" id="a0000000015">
+  \[ 2S_n(1,4)=2^{n-1}+2^{(n-2)/2}*2^{-1/2}= 2^{n-2}+2^{(n-3)/2}  \]
+</div>
+<h2 id="a0000000016">1.2 Problem 2.</h2>
+<p> Based on the following formula </p>
+<div class="displaymath" id="a0000000017">
+  \[  \binom {n}{k}=\binom {n}{n-k}\Rightarrow \sum ^{n}_{i=0}\binom {n}{i}^2= \sum ^{n}_{i=0}\binom {n}{i} \binom {n}{n-i}  \]
+</div>
+<p> acombinatorial proof of the identity above, lets say we have \(2n\) student that want to study the "Basic Combinatoric" course, but for some reason the university decide to schedule the course in class with only \(n\) seats. so we need to choose group of \(n\) student that could have a seat in the class (all the other will watch from zoom), so in total we have </p>
+<div class="displaymath" id="a0000000018">
+  \[  \binom {2n}{n}  \]
+</div>
+<p> on the other hand lets split all the student into 2 equal size group \(n\), now we can choose \(k\) student from the first and \(n-k\) from the second </p>
+<div class="displaymath" id="a0000000019">
+  \[  \binom {n}{k} \binom {n}{n-k}  \]
+</div>
+<p> because we don’t care about the order and want to cover all the sub-group sizes from each one of them, we will some up all the sub-group combination and get </p>
+<div class="displaymath" id="a0000000020">
+  \[  \sum ^{n}_{i=0}\binom {n}{i} \binom {n}{n-i}=\binom {2n}{n}=\sum ^{n}_{i=0}\binom {n}{i}^2  \]
+</div>
+<h2 id="a0000000021">1.3 Problem 3.</h2>
+<p> Combinatorial proof of the identity. suppose some guy lets call him Schrödinger want to place \(r+1\) cats in \(n+1\) boxes one in each box (otherwise they will fight).he can do so while assuming all of them identical ,in total of </p>
+<div class="displaymath" id="a0000000022">
+  \[  \binom {n+1}{r+1}  \]
+</div>
+<p> different ways.<br />but for some reason our guy dont like to do things in the normal way ,he want to put the "boxes inside the cats" he claim that we can look at the first box if we decide to put cat inside we left with \(r\) cats to split in the rest n boxes, on the other hand if we decide to not put cat inside it, we will have \(r+1\) cats to split in the rest boxes, hence </p>
+<div class="displaymath" id="a0000000023">
+  \[  \binom {n+1}{r+1}=\binom {n}{r}+\binom {n}{r+1}  \]
+</div>
+<p> now lets look at the case he decide to leave the box empty and we still left with \(r+1\) cats to drop in \(n\) box and follow the same proses. </p>
+<div class="displaymath" id="a0000000024">
+  \[  \binom {n+1}{r+1}=\binom {n}{r}+\binom {n}{r+1}=\binom {n}{r}+\binom {n-1}{r}+\binom {n-1}{r+1}  \]
+</div>
+<p> we can now follow the same prosses until we have \(r+1\) cats to place in \(r+1\) box, witch is equal 1. </p>
+<div class="displaymath" id="a0000000025">
+  \[  \binom {n+1}{r+1}=\binom {n}{r}+\binom {n-1}{r}+\binom {n-2}{r}+ \dots +\binom {r+1}{r}+ \binom {r+1}{r+1}  \]
+</div>
+<p> now for some \(m\) lets look at the first and secound binomial coefficients of it </p>
+<div class="displaymath" id="a0000000026">
+  \[  \binom {m}{1}=1,\binom {m}{2}=(m^2-m)1/2  \]
+</div>
+<p> hence for \(r=2\) we will get the following equation </p>
+<div class="displaymath" id="a0000000027">
+  \[  2\binom {n+1}{2+1}= 2\sum ^{n-2}_{k=1} \binom {n-k}{2}=\sum ^{n}_{k=1} (k^2-k)=\sum ^{n}_{k=1} k^2-\sum ^{n}_{k=1}k  \]
+</div>
+<div class="displaymath" id="a0000000028">
+  \[ \Rightarrow 2\binom {n+1}{2+1}+\dfrac {n^2+n}{2}=\dfrac {n+3n^2+2n^3}{6}=\sum ^{n}_{k=1} k^2  \]
+</div>
+<p> For general k lets use again the idea described above (with the cats), at first we will the smallest coefficients(1) and the secound will be \(r\) and so one while \(n{\gt}r+1\), so for general \(k\) we will find linear formula that nullify the coefficients of the formula polynomial <br /></p>
+<h2 id="a0000000029">1.4 Problem 4</h2>
+<h3 id="a0000000030"></h3>
+<p> <div class="claim_thmwrapper theorem-style-plain" id="a0000000031">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">1.1</span>
+  </div>
+  <div class="claim_thmcontent">
+  <p>\(c(p,k)\equiv 0\)(mod p) when \(0{\lt}k{\lt}p\) is prime </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000032">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>first look at \(c(n,k)\) binomial form </p>
+<div class="displaymath" id="a0000000033">
+  \[ \binom {p}{k}=\dfrac {p!}{k!(p-k)!}=p\dfrac {(p-1)!}{k!(p-k)!}  \]
+</div>
+<p> under the assumption that p is the grateset prime that divde the following equation, so in total we get </p>
+<div class="centered"> 0 mod p </div>
+
+  </div>
+</div>
+<p> and from the following claim we can immediately get </p>
+<div class="displaymath" id="a0000000034">
+  \[  (1+x)^p=1+c(x,p-1)+x^p \equiv 1 + x^p (mod p) \]
+</div>
+<p> <div class="theorem_thmwrapper theorem-style-plain" id="a0000000035">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.2</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>Fermat’s Little Theorem (FLT). \(b^p \equiv b\) (mod p) for any prime \(p\) and \(b \in F_p\) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000036">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>At the base case for \(b=0\Rightarrow b^k=b\) witch hold \(b^k \equiv b\)(mod p) <br />now using the claim above and our indication for some \(b-1\) , we get </p>
+<div class="displaymath" id="a0000000037">
+  \[ b^p=(1+(b-1))^p\equiv 1+(b-1)^p \textsc{mod p}\Rightarrow b^p=1+(b-1)^p=1+b-1 \equiv b \textsc{mod p}  \]
+</div>
+<p> because \((b-1)^p\equiv b-1\) mod p </p>
+
+  </div>
+</div>
+<h3 id="a0000000038"></h3>
+<p>lets look at the following formula as the Multinomial theorem <br />"is a multinomial coefficient. The sum is taken over all combinations of nonnegative integer indices k1 through km such that the sum of all ki is n. That is, for each term in the expansion, the exponents of the xi must add up to n. Also, as with the binomial theorem, quantities of the form x0 that appear are taken to equal 1 ."<br />( from wikipedia ) </p>
+<div class="displaymath" id="a0000000039">
+  \[  \displaystyle \left(\sum _{i=1}^{m}x_i\right)^n=\sum _{\sum _{i=1}^m k_i=n}^{}\binom {n}{k_1,k_2,k_3.....,k_m}\prod _{i=1}^{m}x_i^{k_i}  \]
+</div>
+<p> <div class="theorem_thmwrapper theorem-style-plain" id="a0000000040">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.3</span>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>Fermat’s Little Theorem (FLT). second proof </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000041">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>The summation above is summing over all sequences of nonnegative integers, lets express \(\alpha \) such as \(1 \leq \alpha \leq p-1\) as a sum of<br />\(1_s\) indicators to the power of \((1_1 + 1_2 + 1+ … 1_\alpha )^p\),we will get </p>
+<div class="displaymath" id="a0000000042">
+  \[  \alpha ^p=\sum _{k_1,k_2,k_3.....,k_\alpha }^{}\binom {p}{k_1,k_2,k_3.....,k_\alpha }  \]
+</div>
+<p> for prime \(p\) and \(k_j \neq p\) for any j, we have </p>
+<div class="displaymath" id="a0000000043">
+  \[  \textsc{( mod p ) 0} \equiv \sum _{k_1,k_2,k_3.....,k_\alpha }^{}\binom {p}{k_1,k_2,k_3.....,k_\alpha }  \]
+</div>
+<p> on the other hand for prime \(p\) and some \(k_j = p\), we have </p>
+<div class="displaymath" id="a0000000044">
+  \[  \textsc{( mod p ) 1} \equiv \sum _{k_1,k_2,k_3.....,k_\alpha }^{}\binom {p}{k_1,k_2,k_3.....,k_\alpha }  \]
+</div>
+<p> from the way we express \(\alpha \) we know there is exactly \(\alpha \) of this \(k_j\) witch hold the theorem </p>
+
+  </div>
+</div>
+<h3 id="a0000000045"></h3>
+<p> Lets \(p\) be any prime \(p\neq 2\),for round a carousel of \(p\) chairs we looking for the different colouring way using \(b\) colors , first if all the chairs apper in a row we looking in total of \(b^p\) different colouring. there are \(b\) ways of colouring with the same colour , so we can claim now there is \(b^p - b\) ways to colouring chairs using at least 2 different colors. hence for prime \(p\) and some \(b\) using the "FLT" theorem we now that there is total \(p\) ways to route this carousel i.e \(b^p-b \equiv 0\) mod p. <br />and in total including the ways of couriering with only one color we get total </p>
+<div class="displaymath" id="a0000000046">
+  \[  b+ \dfrac {b^p-b}{p}  \]
+</div>
+<p> distinct ways of painting the chairs. </p>
+<h2 id="a0000000047">1.5 Problem 5</h2>
+<p> For \(n\) integers \(a_1, a_2, \dots an\), not necessarily distinct, lets look at the following \(n\) integers </p>
+<div class="displaymath" id="a0000000048">
+  \[  a_1, a_1 + a_2, a_1 + a_2 + a_3, \dots , a_1 + a_2 + \dots + a_n.  \]
+</div>
+<p> now lets devide the by \(n\) </p>
+<div class="displaymath" id="a0000000049">
+  \[  \dfrac {a_1}{n} , \dfrac {a_1 + a_2}{n}, \dfrac {a_1 + a_2+a_3}{n}, \dots , \dfrac {a_1 + a_2 + \dots + a_n}{n}.  \]
+</div>
+<p> lets look at the \(i\) reminisces for each one of them such as \(0 \leq r_i \leq n-1 \forall i \in n\) we can look at the following as </p>
+<div class="displaymath" id="a0000000050">
+  \[  m_1n+r_1, m_2n+r_2, \dots , m_nn+r_n.  \]
+</div>
+<p> if one of the \(r_i\) is 0 we done.<br />otherwise according to the Pigeon-hole principle three is some \(r_i=r_j\) lets say that \(i{\lt}j\) so by reducing them we will get </p>
+<div class="displaymath" id="a0000000051">
+  \[  \sum ^{j}_{k=1} a_k - \sum ^{i}_{k=1} a_k=n(m_jn+r-m_in-r)=n(m_jn-m_in+0)=n(\dfrac {a_{i+1}+a_{i+2} \dots +a_j}{n})=\sum ^{j}_{k=i+1} a_k  \]
+</div>
+<p> and we find him. </p>
+<div class="centered"> </div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="index.html" title=""><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title=""><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0002.html" title="Assignment 2"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

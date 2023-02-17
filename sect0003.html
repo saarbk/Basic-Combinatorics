@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>: Assignment 3</title>
+<link rel="next" href="sect0004.html" title="Assignment 4" />
+<link rel="prev" href="sect0002.html" title=" Assignment 2" />
+<link rel="up" href="index.html" title="" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/my_style.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html"></a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry"> Assignment 1</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry"> Assignment 2</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Assignment 3</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Assignment 4</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry"> Assignment 5 </span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000004">3 Assignment 3</h1>
+<div class="centered"></div>
+<h2 id="a0000000127">3.1 Problem 1.</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000128">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>There is an integer \(n_0\) such that for any \(n\ge n_0\), in every \(9\)-coloring of the integers \(\{ 1,2,3,\dots ,n\} \), one of the \(9\) color classes contains \(4\) integers \(a,b,c,d\) such that \(a+b+c=d\). </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000129">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>based on Ramsay Theorem Let \(n_0=K(4,\dots ,4)\), where 4 appears \(k-1\) times. and lets \(c\) be \(r\)-colouring s.t:</p>
+<div class="displaymath" id="a0000000130">
+  \[ c:\{ 1,\dots ,n\} \to \{ 1,\dots , k\}  \]
+</div>
+<p> For graph \(K_n\) and labelling of its edge \(\{ 1,\dots ,n\} \). we can colour any edge \(e_{ij}\) with \(c(|i-j|)\). we got a \(k-1\)-colouring of \(K_n\). then for \(n_0\), we must have a \(K_4\) with all edges different. for vertices \(x\le y\le z \le w\) then </p>
+<div class="displaymath" id="a0000000131">
+  \[ a=y-x,b=z-y,c=w-z,d=w-x \]
+</div>
+<p> Gives a solution </p>
+
+  </div>
+</div>
+<h2 id="a0000000132">3.2 Problem 2.</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000133">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>every tournament on n vertices, contains a transitive tournament on \(\lfloor \log _2 n \rfloor \) vertices. </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000134">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Using induction for \(n=0,1,2\) its holds on empty. W.L.O.G<a class="footnote" href="#a0000000135">
+  <sup class="footnotemark">1</sup>
+</a> assume the claim holds for \(n\leq 2^k\) now lets look at some tournament on \(2^{k+1}\) vertices and we can pick any vertex \(v\), and define: </p>
+<div class="displaymath" id="a0000000136">
+  \[ v_{in}=\{ u : \text{ exsit edege } v\leftarrow u\}  ,v_{out}=\{ u : \text{ exsit edege } v\rightarrow u\}   \]
+</div>
+<p> Hence \(|v_{in}|+|v_{out}|=2^{k+1}-1\) and one of them contain \(|2^k|\) edges, lets assume its \(v_{in}\)<a class="footnote" href="#a0000000137">
+  <sup class="footnotemark">2</sup>
+</a> by our assumption its contains transitive tournament \(T_{in}\) size \(|k|\). now \(T_{in}\cup \{ v\} \) is sub tournament and any edge points to \(v\) hence its transitive tournament on \(|k+1|\) vertices.</p>
+
+  </div>
+</div>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000138">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>there exists a tournament on n vertices that does not contain a transitive tournament on \(2 \log _2 n + 2 \) vertices. </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000139">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>The number of Tournament on \(n\) vertices is \(2^{\binom {n}{2}}\).The number of tournaments of size \(k\) is \(k!\), and there are \(\binom {n}{k}\) sets of size k, and the number of ways to choose the edges outside the transitive tournament is \({2^{\binom n2 - \binom k2}}\). hence if we show that </p>
+<div class="displaymath" id="a0000000140">
+  \[ k! \binom nk 2^{\binom n2 - \binom k2} {\lt} 2^{\binom n2}  \]
+</div>
+<p> its yield that for some \(k\) the number of n-vertex tournaments with a transitive subtournament on \(k\) vertices is smaller than the total number of tournaments. </p>
+<div class="displaymath" id="a0000000141">
+  \begin{eqnarray}  2^{\binom n2} & {\gt}&  k! \binom nk 2^{\binom n2 - \binom k2} \\ 2^{\binom k2}& {\gt}&  k! \binom nk \\ & {\gt}&  k!\frac{n!}{k!(n-k)!} \\ & {\gt}&  n(n-1)(n-2) \dotsm (n-k+1)\\ & {\gt}&  n^k \end{eqnarray}
+</div>
+<p> Taking \(\log _2\) from (3)(7) </p>
+<div class="displaymath" id="a0000000142">
+  \begin{eqnarray}  {\binom k2} & {\gt}&  k\log _2(n) \\ \frac{k!}{2(k-2)!}& {\gt}&  k\log _2(n) \\ \frac{k!}{k(k-2)!}& {\gt}&  2\log _2(n)\\ k-1& {\gt}&  2\log _2(n)\\ k& {\gt}&  2\log _2(n)+1 \end{eqnarray}
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000143">3.3 Problem 3</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000144">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>if an n-vertex graph \(G = (V, E)\) has no copy of \(K_{2,t}\)<a class="footnote" href="#a0000000145">
+  <sup class="footnotemark">3</sup>
+</a> then </p>
+<div class="displaymath" id="a0000000146">
+  \[ |E|\le {1\over 2}(\sqrt{t-1}n^{3\over 2}+n)  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000147">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>W.L.O.G let \(t\ge 1\). we can distinguish that any \(e_1,e _2\in E\) have at most\(^3\) \(t\) neighbours. and each one of them can be part of pair. we can consider it as the number of path length 2 in \(G\). Let \(d(v_i)\) be the deg of \(v_i\in G\) and we get that: </p>
+<div class="displaymath" id="a0000000148">
+  \begin{eqnarray}  t\binom n2\geq \sum _{v\in V} \binom {d(v)}{2}\geq n\binom {2|E|/n}{2} \end{eqnarray}
+</div>
+<p> The right-hand side hold from Jensen’s Inequality and since its minimized<a class="footnote" href="#a0000000149">
+  <sup class="footnotemark">4</sup>
+</a> the binomial when all the degrees are equal, \(d_i = 2|E|/|V|.\) </p>
+<div class="displaymath" id="a0000000150">
+  \begin{eqnarray}  n\binom {2|E|/n}{2}= n\frac{(2|E|/n)(2|E|/n-1)}{2}\ge n\frac{(2|E|/n-1)^2}{2} \end{eqnarray}
+</div>
+<p> And </p>
+<div class="displaymath" id="a0000000151">
+  \begin{eqnarray}  t\binom n2 = t\frac{n^2-n}{2}\le t\frac{n^2}{2} \end{eqnarray}
+</div>
+<p>.We conclude from (13)(14)(15) that </p>
+<div class="displaymath" id="a0000000152">
+  \begin{eqnarray}  n\frac{(2|E|/n-1)^2}{2} & \leq &  t\frac{n^2}{2} \\ {(2|E|/n-1)^2}& \leq &  tn \\ 2|E|/n& \leq &  \sqrt{tn}+1 \\ |E|& \leq ^{3} &  {1\over 2}(\sqrt{t}n^{3\over 2}+n) \end{eqnarray}
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000153">3.4 Problem 4</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000154">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>Let \(S_1, \dots , S_n \in [n]\) such that \(|S_i \cap S_j | \le 1\) for all \(1 \le i {\lt} j \le n\) then. </p>
+<div class="displaymath" id="a0000000155">
+  \[ \frac{1}{n}\sum ^n_{i=1}|S_i|=O(\sqrt{n})  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000156">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let define \(G=(V,E)\) such that </p>
+<div class="displaymath" id="a0000000157">
+  \[ S=\{ S_i:S_i\in [n]\} ,U=\{ i\in n\} \text{ and } E=\{ e_{S_k,m}:m\in S_k \} , V =S\cup U  \]
+</div>
+<p> Its immediate \(|V|=2n\) and \(G\) is Bipartite since we can dived \(V\) into 2 disjoint independent sets \(S\) and \(U\), that is any \(e\in E\) connects a vertex in \(S\) to one in \(U\). hence \(G\) has no copy of \(K_{2,2}\), using <b class="bfseries">Problem 3</b> we can get that </p>
+<div class="displaymath" id="a0000000158">
+  \begin{eqnarray}  |E|& \le &  {1\over 2}(\sqrt{2-1}(2n)^{3\over 2}+2n)\\ \sum ^n_{i=1}|S_i|& \le &  \sqrt{2}n^{3\over 2}+n\\ {1\over n} \sum ^n_{i=1}|S_i|& \le &  \sqrt{2}\sqrt{n}+2\\ \frac{1}{n}\sum ^n_{i=1}|S_i|& =& O(\sqrt{n}) \end{eqnarray}
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000159">3.5 Problem 5</h2>
+<p> <div class="theorem*_thmwrapper theorem-style-plain" id="a0000000160">
+  <div class="theorem*_thmheading">
+    <span class="theorem*_thmcaption">
+    Theorem
+    </span>
+  </div>
+  <div class="theorem*_thmcontent">
+  <p>if \(G = (V, E)\) has no copy of \(K_{t+1}\) then \(|E|\leq (1-\frac{1}{t})\frac{n^2}{2}.\)<br />(Turan’s Theorem) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000161">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(x = (x_1, . . . , x_n) \in \mathbb {R}^n\) and \(f\) to be vector and weight function satisfying </p>
+<div class="displaymath" id="a0000000162">
+  \[  \forall i\text{ } 0 {\lt}x_i\leq 1,\sum ^n_{i=1} x_i = 1,f(x)=\sum _{i,j\in E} x_ix_j  \]
+</div>
+<p> By taking \(x = (\frac{1}{n},\dots , \frac{1}{n})\) we get </p>
+<div class="displaymath" id="a0000000163">
+  \begin{eqnarray}  f(x)\geq \sum _{i,j\in E}\frac{1}{n^2}\geq \frac{|E|}{n^2}\end{eqnarray}
+</div>
+<p> The “weight shifting” method yield to shift the weight between any neighbours \(x_i,x_j\) if \(e_{i,j} \notin E\). <br />We can notice that the sum is maximized when all the weight is concentrated on a clique. Since any shift is does not decrease the value of \(f\) we can repeat the processes. since \(G = (V, E)\) has no copy of \(K_{t+1}\) we can have at most \(t\) size clique ,let name it \([T]\). we can get lower bound on \(f\) : </p>
+<div class="displaymath" id="a0000000164">
+  \begin{eqnarray}  f(x)& \leq &  \sum _{i,j\in [T]}x_ix_j=\sum _{i,j\in [T]}\frac{1}{t^2} \\ & \leq &  \frac{t(t-1)}{2}\frac{1}{t^2}\\ & \leq &  (1-\frac{1}{t})\frac{1}{2} \end{eqnarray}
+</div>
+<p> Combining (27) and (24) to finish the proof </p>
+<div class="displaymath" id="a0000000165">
+  \begin{eqnarray}  \frac{|E|}{n^2}& \leq &  (1-\frac{1}{t})\frac{1}{2}\\ |E|& \leq &  (1-\frac{1}{t})\frac{n^2}{2} \end{eqnarray}
+</div>
+
+  </div>
+</div>
+<p> <br /></p>
+<div class="centered"> </div>
+
+</div> <!--main-text -->
+<footer id="footnotes">
+<ol>
+  <li id="a0000000135">we can modify any other tournament to to nearst power of 2 its will still hold for \(\lfloor \log _2 n+1 \rfloor \) see (10) </li>
+  <li id="a0000000137"> its equivalence for \(v_{out}\)</li>
+  <li id="a0000000145">I will use \(t+1\) for the proof i.e \(K_{2,t+1}\) </li>
+  <li id="a0000000149">convex property </li>
+</ol>
+</footer>
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="sect0002.html" title="Assignment 2"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title=""><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0004.html" title="Assignment 4"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>

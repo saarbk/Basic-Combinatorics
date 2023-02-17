@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>:  Assignment 5 </title>
+<link rel="prev" href="sect0004.html" title="Assignment 4" />
+<link rel="up" href="index.html" title="" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/my_style.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html"></a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry"> Assignment 1</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry"> Assignment 2</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Assignment 3</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Assignment 4</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry"> Assignment 5 </span></a>
+ </li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000006">5  Assignment 5 </h1>
+<div class="centered"></div>
+<h2 id="a0000000222">5.1 Problem 1</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000223">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>the number of surjective mappings from [n] to [k] is given by</p>
+<div class="displaymath" id="a0000000224">
+  \[  \sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000225">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>denote </p>
+<div class="displaymath" id="a0000000226">
+  \[ f_{x}=\{ f: f^{-1}[C] \text{ s.t } [C]\subseteq [k],\quad |C|\le |k-x| \}  \]
+</div>
+<p> to be the set of all function from \([n]\) to subset of \([k]\) where at least \(x\) element of \(k\) is not in the image of \(f_x\). let look at \(f_1\), we can choose 1 from \(k\) element to not be part of the image, it is \(k \choose 1\). now we have \(k-1\) elements to choose from \(n\) items, i.e which item from \(n_i\in n\) will map to \(k_j\in k\). Hence we looking at total \({k \choose 1} (k-1)\) functions. and for general \(x\) it is \(|f_x|={ k \choose x}(k-x)^n\). now lets \(f_0=S\) to be the set of all function from \([n]\) to \([m]\), since \(f_x \subseteq f_y\) for \(0\le x \le y\le k\) then : </p>
+<div class="displaymath" id="a0000000227">
+  \[ f_{onto} \in \bigcap _{i=1}^{k}\overline{f_i}\Rightarrow |\bigcap _{i=1}^{k}\overline{f_i}|=\footnote{De Morgan}| S - \bigcup _{i=1}^{k}f_i|  \]
+</div>
+<p> using inclusion exclusion principle we get that. </p>
+<div class="displaymath" id="a0000000228">
+  \[ {k \choose 0}k^n - {k \choose 1}(k-1)^n + {k \choose 2}(k-2)^n - \cdots \pm {k \choose k-2}2^n \mp {k \choose k-1}1^n \pm {k \choose k}0^n  \]
+</div>
+<p> that is </p>
+<div class="displaymath" id="a0000000229">
+  \[ \sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n  \]
+</div>
+
+  </div>
+</div>
+<p><div class="prop_thmwrapper theorem-style-plain" id="a0000000230">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">5</span>
+  </div>
+  <div class="prop_thmcontent">
+  <div class="displaymath" id="a0000000231">
+  \[ \sum _{i=0}^n(-1)^i {n \choose i}(n-i)^n=n!  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000232">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>\(\Rightarrow \) using the result above, for \(k=n\) its following that : </p>
+<div class="displaymath" id="a0000000233">
+  \[ \sum _{i=0}^n(-1)^i {n \choose i}(n-i)^n=n!  \]
+</div>
+<p> \(\Leftarrow \) the number of onto function from \([n]\) to \([n]\) is equivalence to to the number of ways to arrange \(n\) distinct elements in row , that is </p>
+<div class="displaymath" id="a0000000234">
+  \[ n!=\sum _{i=0}^n(-1)^i {n \choose i}(n-i)^n  \]
+</div>
+
+  </div>
+</div>
+<p><div class="prop_thmwrapper theorem-style-plain" id="a0000000235">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">6</span>
+  </div>
+  <div class="prop_thmcontent">
+  <div class="displaymath" id="a0000000236">
+  \[ \sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n=0 \quad \text{when } k{\gt}n.  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000237">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>\(\Rightarrow \) using the result above, for \(k{\gt}n\) its following that : </p>
+<div class="displaymath" id="a0000000238">
+  \[ \sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n=0  \]
+</div>
+<p> \(\Leftarrow \) assume we have \(k\) pigeons, we need to find in how many ways we can place them all in \(n\) holes, when each one of them in different hole. after placing \(n-k\) of them the all the holes are full and we left with \(k-n{\gt}0\) pigeons. following the Pigeonhole principle there are is-no option to do so, or equivalence to 0 ways. </p>
+
+  </div>
+</div>
+<p> <div class="prop_thmwrapper theorem-style-plain" id="a0000000239">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">7</span>
+  </div>
+  <div class="prop_thmcontent">
+  <div class="displaymath" id="a0000000240">
+  \[  S(n,k)=\frac{1}{k!}\sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n\quad  \]
+</div>
+<p> where S(n, k) are the Stirling numbers of the second kind </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000241">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>\(\Rightarrow \)its immediate from the definition of \(S(n,k)\) : </p>
+<div class="displaymath" id="a0000000242">
+  \[ S(n,k)=\frac{1}{k!}\sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n\quad  \]
+</div>
+<p> \(\Leftarrow \) we can consider the the set \(S_k\): </p>
+<div class="displaymath" id="a0000000243">
+  \[ S_k:=\{ \{ f^{-1}(x)\} ,\forall x\in k \}   \]
+</div>
+<p> we are looking at total of \(k\) non-empty sets. the amount of subjective function from \([n]\) to \([k]\) is number of ways to distribute the elements of \(n\) into these sets, let \(S(n,S_k)\) be the number of ways to partition a set of n objects into \(S_k=|k|\) non-empty subsets. now we can notice that any \(k_i\in k\) can be associated with any of these sets i.e total of \(k!\). and in total we get: </p>
+<div class="displaymath" id="a0000000244">
+  \[  S(n,S_k)k!=S(n,k)k!=k!\frac{1}{k!}\sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n =\sum _{i=0}^k(-1)^i {k \choose i}(k-i)^n  \]
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000245">5.2 Problem 2</h2>
+<p> <div class="claim*_thmwrapper theorem-style-plain" id="a0000000246">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>the number of ways of coloring the integers \(\{  1 \dots 2n \} \) using the colors red/blue in such a way that if i is colored red then so is \(i-1\), is: </p>
+<div class="displaymath" id="a0000000247">
+  \[ \sum ^n_{k=0}(-1)^k\binom {2n-k}{k}2^{2n-2k}=2n+1  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000248">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>I will use counting in two ways method to deduce the identity<br />\(\Rightarrow \) we can consider the problem as placing \(2n\) items in a row and choose spot to place separator s.t any item to its left are red and all the other are blue. we looking at total of \(2n-2\) in between any two adjacent numbers from 1 to \(2n\). by including 2 more additional option that all of them red or blue, we get that the total of number of ways to place the separator is given by \(2n+1\) .<br />\(\Leftarrow \) There are in total \(S=2^{2n}\) ways of coloring the integers. with same idea as above, we can consider the separator as choose pair of adjacent integers the first will be coloring with R and the second B and rest dont care, it is: </p>
+<div class="displaymath" id="a0000000249">
+  \[ 2^{2n-2}\binom {2n-1}{1}  \]
+</div>
+<p> now same idea for 2 paris </p>
+<div class="displaymath" id="a0000000250">
+  \[ 2^{2n-4}\binom {2n-1}{2}  \]
+</div>
+<p> and in general : </p>
+<div class="displaymath" id="a0000000251">
+  \[ 2^{2n-2i}\binom {2n-i}{i}  \]
+</div>
+<p> Using Inclusion exclusion principle we get that </p>
+<div class="displaymath" id="a0000000252">
+  \[ 2^{2n}-2^{2n-2}\binom {2n-1}{1}+\dots \pm \binom {2n-n}{n}2^{2n-2n}  \]
+</div>
+<p> that is : </p>
+<div class="displaymath" id="a0000000253">
+  \[ \sum ^n_{k=0}(-1)^k\binom {2n-k}{k}2^{2n-2k}  \]
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000254">5.3 Problem 3</h2>
+<p> <div class="prop_thmwrapper theorem-style-plain" id="a0000000255">
+  <div class="prop_thmheading">
+    <span class="prop_thmcaption">
+    Proposition
+    </span>
+    <span class="prop_thmlabel">8</span>
+  </div>
+  <div class="prop_thmcontent">
+  <p>Let N be a set, then any \(k\subseteq N \) have bijection such that \(k\to \{ 0,1\} ^{|N|}\) </p>
+
+  </div>
+</div> let define the following mapping </p>
+<div class="displaymath" id="a0000000256">
+  \[  f:\left\{ \begin{array}{ccc}k& \mapsto & x\in N\mapsto \left\{ \begin{array}{ll}0& \textrm{, if }x\notin N\\ 1& \textrm{, if }x\in N\end{array}\right.\end{array}\right.\quad f^{-1}\{ \{ 0,1\} ^N \mapsto \{ x\in N\textrm{ s.t. }f(x)=1\}   \]
+</div>
+<p> we can consider it as binary encode of the subset indicate \(\mathds {1}\) if the given integer in the subset and 0 otherwise <div class="claim*_thmwrapper theorem-style-plain" id="a0000000257">
+  <div class="claim*_thmheading">
+    <span class="claim*_thmcaption">
+    claim
+    </span>
+  </div>
+  <div class="claim*_thmcontent">
+  <p>the number of subsets of size k of \(\{ 1,\dots n\} \) which contain no pair of consecutive integers is given by \(n-k+1 \choose k\) </p>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000258">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>using Proposition 8. subset \(k\) can represented as some binary string of length \(n\), its yield that if in some string have two consecutive appearances \(\mathds {1}\) then this subset contain pair of consecutive integers. moreover we can notice that if \(n{\lt} 2k-1\) then its can not contain pair of consecutive integers.<br /><br />For given k let \(f(k)\) define the bijection of subset \(k\) for some \(n\ge 2k-1\). if we assume its not have any consecutive numbers, then its have k \(\mathds {1}\)’s and \(n-k\) 0’s. since we know \(k-1\) from the 0’s must be followed by the first \(k-1\) of \(\mathds {1}\)’s. hence the following problem becomes, how many ways could we distribute the remaining element i.e</p>
+<div class="displaymath" id="a0000000259">
+  \[  n-(\underbrace{k}_{k\times \mathds {1}'s} + \underbrace{(k-1)}_{(k-1) \times 0's})=n-2k+1  \]
+</div>
+<p> it is \(n-2k+1\) number of 0’s in the \(k+1\) optinal positions and. that is "Stars and bars"<a class="footnote" href="#a0000000260">
+  <sup class="footnotemark">2</sup>
+</a> problem : </p>
+<div class="displaymath" id="a0000000261">
+  \[ \binom {n-2k+1-1}{k+1-1}=\binom {n-2k}{k}  \]
+</div>
+
+  </div>
+</div>
+<h2 id="a0000000262">5.4 Problem 4</h2>
+<p> <div class="lemma_thmwrapper theorem-style-plain" id="a0000000263">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">5.1</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <div class="displaymath" id="a0000000264">
+  \[ 1\ge m-{m \choose 2} \quad m\ge 1, m\in \mathbb {N}  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000265">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <div class="displaymath" id="a0000000266">
+  \begin{align*}  1\ge m-{m \choose 2} & \Leftrightarrow 1\ge m-\frac{m^2-m}{2} \\ m^2-3m+2\ge 0 & \Leftrightarrow (m-1)(m-2)\ge 0 \end{align*}
+</div>
+<p> And the right hand size grater then zero for any \(m\ge 2\) </p>
+
+  </div>
+</div>
+<p><div class="lemma_thmwrapper theorem-style-plain" id="a0000000267">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">5.2</span>
+  </div>
+  <div class="lemma_thmcontent">
+  <div class="displaymath" id="a0000000268">
+  \[ 1\le m-{m \choose 2}+{m\choose 3} \quad m\ge 1, m\in \mathbb {N}  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000269">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <div class="displaymath" id="a0000000270">
+  \begin{align*}  1\le m-{m \choose 2}+{m\choose 3} & \Leftrightarrow 1\le m-\frac{m^2-m}{2}+\frac{m^3-2m^2-2m}{6} \\ & \Leftrightarrow 0 \le m^3 -6m^2+11m-6 \\ & \Leftrightarrow 0\le (m-3)(m-2)(m-1) \end{align*}
+</div>
+<p> The right hand size grater then zero for any \(m\ge 3\), and equal 0 for \(m\in \{ 1,2\} \) since m is an integer. </p>
+
+  </div>
+</div>
+<p>Let \(A_1,A_2\dots A_n\) be a family of n sets. </p>
+<p><div class="claim_thmwrapper theorem-style-plain" id="a0000000271">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">5.3</span>
+  </div>
+  <div class="claim_thmcontent">
+  <div class="displaymath" id="a0000000272">
+  \[  \left|\bigcup _{i=1}^nA_i \right|\ge \sum _{1\le i\le n} |A_i|- \sum _{1\le i\le j\le n}|A_i\cap A_j|  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000273">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>to prove the following claim I will use "Donation to the Argument" <a class="footnote" href="#a0000000274">
+  <sup class="footnotemark">3</sup>
+</a> method. let assume that exists some \(a\in A_i\). this \(a\) adding at most 1 to the left hand side. now consider \(a\) is part of some other \(m\ge 1\) sets, then at the right hand side its count \(m \choose 1\) times at the first argument, and \(m\choose 2\) in the second. Hence using Lemma 5.1 the inequality hold for any \(a\in A\). and that lead to finish the proof </p>
+
+  </div>
+</div>
+<p> <div class="claim_thmwrapper theorem-style-plain" id="a0000000275">
+  <div class="claim_thmheading">
+    <span class="claim_thmcaption">
+    claim
+    </span>
+    <span class="claim_thmlabel">5.4</span>
+  </div>
+  <div class="claim_thmcontent">
+  <div class="displaymath" id="a0000000276">
+  \[  \left|\bigcup _{i=1}^nA_i \right|\le \sum _{1\le i\le n} |A_i|- \sum _{1\le i\le j\le n}|A_i\cap A_j|+\sum _{1\le i\le j\le k\le n}|A_i\cap A_j\cap A_k|  \]
+</div>
+
+  </div>
+</div> </p>
+<div class="proof_wrapper" id="a0000000277">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▼</span>
+  </div>
+  <div class="proof_content">
+  <p>using same idea described above, let \(a\in A_i\) then \(a\) count once on the left hand-sid. At the right hand-side \(a\) count \(m \choose 1\) on the \(1^{\text{nd}}\) term. \(m \choose 2\) on the \(2^{\text{nd}}\) and \(m \choose 3\) at the \(3^{\text{nd}}\) term. Hence using Lemma 5.3 the inequality hold for any \(a\in A\). and that lead to finish the proof. </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+<footer id="footnotes">
+<ol>
+  <li id="a0000000278">De Morgan</li>
+  <li id="a0000000260"> Not sure if saw in class -<a href ="https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)"><em>"Stars and Bars from Wikipedia"</em> </a></li>
+  <li id="a0000000274">To be honest I am not really sure what the name of this technique, Its kind of similar to "Counting derangements" I think </li>
+</ol>
+</footer>
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <a href="sect0004.html" title="Assignment 4"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title=""><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+</body>
+</html>
