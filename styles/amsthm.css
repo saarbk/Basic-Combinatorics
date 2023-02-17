@@ -15,6 +15,7 @@
                 }
                 div.theorem-style-plain div[class$='_thmcontent'] {
                     font-style: italic;
+                    background-color: #F2F2F2;
                     font-weight: normal;
                     
                 }
